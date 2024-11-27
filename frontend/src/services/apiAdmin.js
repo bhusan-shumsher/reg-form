@@ -278,3 +278,22 @@ export async function filterBySubmission({currentSemester,type}){
     }
     return response.data;
 }
+
+export async function filterByRegistration({faculty,type}){
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.get('/api/admin/filter-registration',
+        {
+            headers:{
+                'Authorization': 'Bearer '+`${token.token}`,
+            },
+            params:{
+                faculty,
+                type
+                    }
+        }  
+    );
+    if(!response){
+        throw new Error('cant get data');
+    }
+    return response.data;
+}

@@ -4,7 +4,7 @@ const Staff = require('../models/staff');
 const SchoolInfo = require('../models/school-info');
 const Result = require('../models/result');
 const Fee = require('../models/fee');
-
+const NewStudent = require('../models/newstudent');
 exports.getCounts = async (req,res,next)=>{
     try{
         const totalStudents = await User.where({}).countDocuments();
@@ -303,3 +303,24 @@ exports.changeDueStatus = async(req,res,next)=>{
         return res.status(500).send({message: err.message});
     }
  }
+
+ // FILTER LIST OF STUDENTS REGISTERED
+ exports.filterRegistration = async(req,res,next)=>{
+    try{
+        const {type,faculty} = req.query;
+        console.log(type);
+        const users = await NewStudent.aggregate([
+            {$match:{$and:[
+                {hasSubmitted: type === 'SUBMITTED'},
+                {faculty}
+            ]}},
+            {
+                $unset:"password"
+            }
+        ]);
+        return res.status(200).send(users);
+        
+    }catch(err){
+        return res.status(501).send({message: err.message});
+    }
+}

@@ -36,6 +36,7 @@ router.get('/api/account/get-all-students',adminController.getAllStudents);
 // **** MIGRATE DATA TO FEE COLLECTION : **** not for frontend ***
 router.post('/api/admin/migrate',isAdmin,adminController.migrateUser);
 
-
+// FILTER STUDENT WHO HAS REGISTERED
+router.get('/api/admin/filter-registration',isAdmin,adminController.filterRegistration)
 
 module.exports = router;

@@ -21,6 +21,11 @@ const newStudentSchema = new Schema({
     hasSubmitted:{
         type: Boolean,
         default: false
+    },
+    faculty:{
+        type: String,
+        required: true,
+        enum:['BESE','BEIT','BECE','BECIVIL','BARCH','BBA','BCA']
     }
 });
 

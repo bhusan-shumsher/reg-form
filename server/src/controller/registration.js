@@ -57,7 +57,9 @@ exports.login = async (req,res,next)=>{
 exports.bulkUpload = async (req,res,next)=>{
     try{
         const file = req.files[0]; // changed this to read the first file 
-        const data = excel.registerBulk(file.path);
+        const {faculty} = req.body;
+        console.log(faculty);
+        const data = excel.registerBulk(file.path,faculty);
          const users = await NewStudent.insertMany(data);
          if(users){
              return res.status(201).send({message: users.length + ' users created'});

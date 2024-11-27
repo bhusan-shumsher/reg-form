@@ -22,6 +22,7 @@ import FeeStatus from "./features/student/FeeStatus";
 import AccountDashboard from "./features/staff/account/AccountDashboard";
 import AccountProtected from "./features/staff/account/AccountProtected";
 
+import FilterSubmission from "./features/staff/FilterSubmission";
 import DepartmentDashboard from "./features/staff/department/DepartmentDashboard";
 import DepartmentProtectedRoute from "./features/staff/department/DepartmentProtectedRoute";
 import StudentList from './features/staff/department/StudentList';
@@ -172,6 +173,10 @@ const router = createBrowserRouter([
         path:'/admin/student',
         element: <ListStudent/>
       },
+      {
+        path:'/admin/filter-submission',
+        element: <FilterSubmission/>
+      }
       
     ]
   },

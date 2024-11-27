@@ -1,7 +1,7 @@
 const xlsx = require('xlsx');
 // ONLY FOR NEW STUDENTS FOR PU REGISTRATION
 
-exports.registerBulk = (filepath)=>{
+exports.registerBulk = (filepath,faculty)=>{
     try{
         const file = xlsx.readFile(filepath);
         const sheetName = file.SheetNames;
@@ -11,7 +11,7 @@ exports.registerBulk = (filepath)=>{
           parsedData.push(...tempData);
         let student = [];
         parsedData.forEach(data=>{
-            student.push(createNewStudent(data['Email Address']));
+            student.push(createNewStudent(data['Email Address'],faculty));
       })
       return student;
     }catch(err){
@@ -20,9 +20,10 @@ exports.registerBulk = (filepath)=>{
     }
 }
 
-const createNewStudent = (data)=>{
+const createNewStudent = (data,faculty)=>{
     const record = new Object();
     record.email = data;
+    record.faculty = faculty;
     record.password = Math.random().toString(36).substring(2,8); //generate random password
     return record;
 }
