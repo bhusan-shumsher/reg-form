@@ -76,6 +76,8 @@ exports.saveDetails = async (req,res,next)=>{
         console.log(req.body);
         const user = await RegistrationDetail.find({email: req.email});
         const {
+            plusTwoAddress,
+            schoolAddress,
             program,title,fullName,fullNameDevanagari,
             fatherName, motherName,nationality,
             religion,ethnicity,
