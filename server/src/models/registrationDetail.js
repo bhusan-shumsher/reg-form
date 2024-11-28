@@ -51,6 +51,7 @@ const registrationDetailSchema = new Schema({
     },
     nationality:{
         type: String,
+        default: 'Nepali',
         required: true,
         trim: true
     },
@@ -59,7 +60,7 @@ const registrationDetailSchema = new Schema({
         trim: true,
         required: true
     },
-    ethinicity:{
+    ethnicity:{
         type: String,
         trim: true,
         required: true
@@ -189,6 +190,14 @@ const registrationDetailSchema = new Schema({
     gender:{
         type: String,
         required: true,
+        trim: true
+    },
+    plusTwoAddress:{
+        type: String,
+        trim: true
+    },
+    schoolAddress:{
+        type: String,
         trim: true
     }
 });

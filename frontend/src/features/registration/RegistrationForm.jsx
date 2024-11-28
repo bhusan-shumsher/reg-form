@@ -169,15 +169,16 @@ export default function RegistrationForm(){
                     errors={errors}
                 />
 
-                <LongTextBox 
-                    label="Nationality"
-                    placeholder="Nationality"
-                    isCompulsory={true}
-                    register={register}
-                    name='nationality'
-                    errors={errors}
-                />
-
+                <Dropdown
+                label='Nationality'
+                values={[
+                    {placeholder:'Nepali',value:'Hindu'}
+                ]}
+                isCompulsory={true}
+                register = {register}
+                name='nationality'
+                errors={errors}
+            />
                 <Dropdown
                 label='Religion'
                 placeholder='Select Religion'
@@ -327,6 +328,14 @@ export default function RegistrationForm(){
                     errors={errors}
                 />
                 <LongTextBox 
+                    label="School Address"
+                    placeholder="School Address"
+                    isCompulsory={true}
+                    register={register}
+                    name='schoolAddress'
+                    errors={errors}
+                />
+                <LongTextBox 
                     label="Board/University"
                     placeholder="Board/Univeristy"
                     isCompulsory={true}
@@ -410,10 +419,18 @@ export default function RegistrationForm(){
         <h5 className="form-title student-info">High School or Equivalent <span></span></h5>
         <LongTextBox 
                     label="College Name"
-                    placeholder="college Name"
+                    placeholder="College Name"
                     isCompulsory={true}
                     register={register}
                     name='plusTwoName'
+                    errors={errors}
+                />
+            <LongTextBox 
+                    label="College Address"
+                    placeholder="College Address"
+                    isCompulsory={true}
+                    register={register}
+                    name='plusTwoAddress'
                     errors={errors}
                 />
         <LongTextBox 

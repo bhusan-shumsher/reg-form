@@ -78,7 +78,7 @@ exports.saveDetails = async (req,res,next)=>{
         const {
             program,title,fullName,fullNameDevanagari,
             fatherName, motherName,nationality,
-            religion,ethinicity,
+            religion,ethnicity,
             townVillage,wardNum,district,zone,
             schoolName,secondaryBoard,secondaryYear,secondaryTotalMarks,
             secondaryMarksObtained,secondaryDivision,
@@ -90,7 +90,6 @@ exports.saveDetails = async (req,res,next)=>{
         // console(req.email,devanagariNam);
 
         // Handle the uploaded files
-        console.log(req);
     const file = req.files[0];
     var faculty;
         if(program === 'BBA'){
@@ -122,7 +121,7 @@ exports.saveDetails = async (req,res,next)=>{
         email: req.email,
         faculty,title,fullName,fullNameDevanagari,
             fatherName, motherName,nationality,
-            religion,ethinicity,
+            religion,ethnicity,
             townVillage,wardNum,district,zone,
             schoolName,secondaryBoard,secondaryYear,secondaryTotalMarks,
             secondaryMarksObtained,secondaryDivision,
@@ -133,7 +132,9 @@ exports.saveDetails = async (req,res,next)=>{
             photoURL: filePath,
             dobEnglish: dobE,
             dobNepali,
-            gender
+            gender,
+            schoolAddress,
+            plusTwoAddress
     });
     if(user.length>0){
         await RegistrationDetail.findOneAndUpdate({email:req.email},{
