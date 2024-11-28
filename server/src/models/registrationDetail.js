@@ -185,6 +185,11 @@ const registrationDetailSchema = new Schema({
     migration:{
         type: Boolean,
         default: false
+    },
+    gender:{
+        type: String,
+        required: true,
+        trim: true
     }
 });
 

@@ -84,7 +84,7 @@ exports.saveDetails = async (req,res,next)=>{
             secondaryMarksObtained,secondaryDivision,
             secondarySymbol,
             plusTwoName,plusTwoBoard,plusTwoYear,
-            plusTwoTotalMarks,plusTwoMarksObtained,plusTwoDivision,plusTwoSymbol,dobEnglish
+            plusTwoTotalMarks,plusTwoMarksObtained,plusTwoDivision,plusTwoSymbol,dobEnglish,gender
         } = req.body;
 
         // console(req.email,devanagariNam);
@@ -132,7 +132,8 @@ exports.saveDetails = async (req,res,next)=>{
             program,
             photoURL: filePath,
             dobEnglish: dobE,
-            dobNepali
+            dobNepali,
+            gender
     });
     if(user.length>0){
         await RegistrationDetail.findOneAndUpdate({email:req.email},{

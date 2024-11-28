@@ -11,8 +11,9 @@ services:
     depends_on:
       - api
       - client
-    # volumes:
-    #   - /home/cert:/etc/nginx/certs
+    volumes:
+      - /etc/letsencrypt/live/portal.ncit.edu.np/fullchain.pem:/etc/nginx/certs
+      - /etc/letsencrypt/live/portal.ncit.edu.np/privkey.pem:/etc/nginx/privkey
   
   client:
     build:
