@@ -194,7 +194,7 @@ exports.generateRegistrationForm = async (req,res,next)=>{
             dobEnglish: splitDate(user[0].dobEnglish),
             dobNepali: splitDate(user[0].dobNepali),
             nationality: user[0].nationality.toUpperCase(),
-            ethinicity: user[0].ethinicity.toUpperCase(),
+            ethinicity: user[0].ethnicity.toUpperCase(),
             religion: user[0].religion.toUpperCase(),
             fatherName: addSpace(user[0].fatherName.toUpperCase()).split(''),
             motherName: addSpace(user[0].motherName.toUpperCase()).split(''),

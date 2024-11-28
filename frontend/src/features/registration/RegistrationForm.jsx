@@ -172,7 +172,7 @@ export default function RegistrationForm(){
                 <Dropdown
                 label='Nationality'
                 values={[
-                    {placeholder:'Nepali',value:'Hindu'}
+                    {placeholder:'Nepali',value:'Nepali'}
                 ]}
                 isCompulsory={true}
                 register = {register}
