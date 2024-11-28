@@ -142,7 +142,7 @@ exports.saveDetails = async (req,res,next)=>{
         await RegistrationDetail.findOneAndUpdate({email:req.email},{
             faculty,title,fullName,fullNameDevanagari,
             fatherName, motherName,nationality,
-            religion,ethinicity,
+            religion,ethnicity,
             townVillage,wardNum,district,zone,
             schoolName,secondaryBoard,secondaryYear,secondaryTotalMarks,
             secondaryMarksObtained,secondaryDivision,
