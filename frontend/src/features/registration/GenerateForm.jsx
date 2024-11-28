@@ -5,32 +5,7 @@ export default function GenerateForm(){
     const onSubmit = () => {
         generate();
       }
-      if(isLoading){
-        <div className="content container-fluid">
-                <div className="page-header">
-                <div className="row align-items-center">
-                <div className="col-sm-12">
-                
-                </div>
-                </div>
-                </div>
-    
-                <div className="row">
-                <div className="col-sm-12">
-                <div className="card comman-shadow">
-                <div className="card-body">
-                <div className="row">
-                <div className="col-12">
-                </div>
-                <Spinner/>
-            </div>
-            </div>
-            </div>
-            </div>
-                </div>
-         </div>
-      }
-    return(
+      if(!isLoading){
         <div className="content container-fluid">
                 <div className="page-header">
                 <div className="row align-items-center">
@@ -61,5 +36,8 @@ export default function GenerateForm(){
             </div>
                 </div>
          </div>
+      }
+    return(
+        
     );
 }

@@ -221,14 +221,6 @@ export default function RegistrationForm(){
                 name='ethnicity'
                 errors={errors}
             />
-             {/* <LongTextBox 
-                    label="Ethinicity"
-                    placeholder="Ethinicity"
-                    isCompulsory={true}
-                    register={register}
-                    name='ethinicity'
-                    errors={errors}
-                /> */}
                    <button 
                         type="button" 
                         className="btn btn-primary"
