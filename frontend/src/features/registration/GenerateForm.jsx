@@ -9,7 +9,7 @@ export default function GenerateForm(){
         generate();
       }
       if(clicked){
-        rerturn(<div className="content container-fluid">
+        return(<div className="content container-fluid">
           <div className="page-header">
           <div className="row align-items-center">
           <div className="col-sm-12">
