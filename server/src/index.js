@@ -53,8 +53,8 @@ app.use(registration);
 
 const start = async()=>{
     try{
-        // await mongoose.connect('mongodb://mongo/ncit-portal');
-        await mongoose.connect('mongodb://0.0.0.0:27017/ncit-portal')
+        await mongoose.connect('mongodb://mongo/ncit-portal');
+        // await mongoose.connect('mongodb://0.0.0.0:27017/ncit-portal') - FOR LOCAL DEV SETUP
         console.log('database connected');
     }catch(err){
         console.log(err);
