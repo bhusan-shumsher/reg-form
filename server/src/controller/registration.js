@@ -20,7 +20,7 @@ exports.signup = async (req,res,next)=>{
         return res.status(400).send({mesasge:"Invalid email or password"});
     }
 
-    const {email} = req.body;
+    const {email,faculty} = req.body;
     
     const existingUser = await NewStudent.findOne({email});
     if(existingUser){
@@ -29,7 +29,7 @@ exports.signup = async (req,res,next)=>{
     }
     const password = util.randomDigitGenerator();
 
-    const user = new NewStudent({email, password});
+    const user = new NewStudent({email, password,faculty});
     await user.save();
     res.status(201).send(user);
 }
