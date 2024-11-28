@@ -28,7 +28,7 @@ export default function GenerateForm(){
       <button 
         type="button" 
         class="btn btn-primary"
-        onClick={onSubmit}>Generate</button>
+        onClick={onSubmit}>{!isLoading ? 'Generate' : <Spinner/>}</button>
      </form>
     </div>
     </div>
@@ -37,7 +37,7 @@ export default function GenerateForm(){
         </div>
  </div>
  );
-        }else{
+}else{
           rerturn(<div className="content container-fluid">
           <div className="page-header">
           <div className="row align-items-center">

@@ -11,7 +11,6 @@ export function useGenerateForm(){
             navigate('/new-student/form-download',{replace: true})
         },
         onError: err=>{
-            console.log('Error',err);
             // add toast
             toast.error('Unable to generate form');
         }
