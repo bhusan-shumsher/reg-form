@@ -11,8 +11,7 @@ exports.addBulkResult = async (req,res,next)=>{
         semesterType,
         faculty
     };
-    const file = req.file;
-    console.log('**',file);
+    const file = req.files[0];
 
     const subjectInfoList = await Subject.find({semester, faculty});
     const data = util.ex2json(file.path, file.filename, 'result',null,obj,subjectInfoList);
@@ -150,7 +149,7 @@ exports.getSubjectBySemester = async(req,res,next)=>{
 exports.postBulkBackPaper = async (req,res,next)=>{
     try{
         
-    const file = req.file;
+    const file = req.files[0];
     const array = backHelper.readBacks(file.path, file.filename);
     const ans = array.forEach(subArray=> subArray.forEach(async data=>{
         await Result.updateOne({

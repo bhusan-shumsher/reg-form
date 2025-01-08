@@ -6,6 +6,7 @@ export default function StudentDetail(){
     const location = useLocation();
     const {rollNumber} = location.state;
     const {data,error,isLoading,isError} = useStudentByID({rollNumber});
+    console.log(rollNumber)
     if(isLoading){
         <h1>Loading....</h1>
     }

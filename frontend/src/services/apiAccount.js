@@ -1,8 +1,8 @@
 import axios from "axios";
-
+// FOR PRODUCTION REPLACE ALL URL AS 'http://localhost:300/api/account/student'
 export async function searchStudentForAccount({rollNumber, studentName, semester, faculty}){
     const token = JSON.parse(localStorage.getItem('token'));
-        const response = await axios.get('/api/account/students',
+        const response = await axios.get('http://localhost:300/api/account/students',
         {
             headers:{
                 'Authorization': 'Bearer '+`${token.token}`
@@ -24,7 +24,7 @@ export async function searchStudentForAccount({rollNumber, studentName, semester
 
 export async function markAsPaid({rollNumber, paidStatus}){
     const token = JSON.parse(localStorage.getItem('token'));
-        const response = await axios.post('/api/account/change-due',{rollNumber,status:paidStatus},
+        const response = await axios.post('http://localhost:300/api/account/change-due',{rollNumber,status:paidStatus},
         {
             headers:{
                 'Authorization': 'Bearer '+`${token.token}`

@@ -102,7 +102,7 @@ export default function PersonalDetail({info}){
 </div>
 <div class="hello-park">
 </div>
-<div class="hello-park">
+{/* <div class="hello-park">
 <div class="educate-year">
 <h6>Year: <b>{schoolInfo.highSchoolYear}</b></h6>
 <p>College: <em><b>{schoolInfo.collegeName}, {schoolInfo.highSchoolBoard}</b></em></p>
@@ -117,7 +117,7 @@ export default function PersonalDetail({info}){
 <p>Marks Obtained: <em><b>{schoolInfo.schoolObtainedMarks}/{schoolInfo.schoolTotalMarks}</b></em></p>
 <p>Division: <em><b>{schoolInfo.schoolDivision}</b></em></p>
 </div>
-</div>
+</div> */}
 </div>
 </div>
 </div>

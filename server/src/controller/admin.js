@@ -118,15 +118,18 @@ exports.searchStudent = async (req,res,next)=>{
 
 exports.getStudentDetailsByID = async (req,res,next)=>{
     try{
-            const student = await User.aggregate([
-                {$match: req.params},
-                {$lookup:{from:'schoolinfos',localField:'rollNumber',foreignField:'rollNumber',as:'schoolInfo'}},
-                {$unwind:'$schoolInfo'},
-                {$project:{password: 0, isFirstTime: 0}}
-            ]);
+        // console.log('?????',req.params)
+        //     const student = await User.aggregate([
+        //         {$match: req.params},
+        //         {$lookup:{from:'schoolinfos',localField:'rollNumber',foreignField:'rollNumber',as:'schoolInfo'}},
+        //         {$unwind:'$schoolInfo'},
+        //         {$project:{password: 0, isFirstTime: 0}}
+        //     ]);
+        const student = await User.find(req.params);
             if(!student){
                 throw new Error('cant get the student');
             }
+            console.log('API',student)
             return res.status(200).send(student);
     }catch(err){
         return res.status(500).send({message: err.message})

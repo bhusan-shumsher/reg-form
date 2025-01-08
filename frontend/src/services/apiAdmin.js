@@ -1,6 +1,6 @@
 import axios from "axios";
 export async function login({email,password}){
-    const response = await axios.post('/api/staff/login',{
+    const response = await axios.post('http://localhost:3000/api/staff/login',{
         email,
         password
     });
@@ -12,7 +12,7 @@ export async function login({email,password}){
 
 export async function searchStudent({rollNumber, studentName, semester, faculty, collegeName}){
 const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get('/api/admin/student',
+    const response = await axios.get('http://localhost:3000/api/admin/student',
     {
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
@@ -34,7 +34,8 @@ const token = JSON.parse(localStorage.getItem('token'));
 
 export async function getStudentById({rollNumber}){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(`/api/admin/student/${rollNumber}`,
+    console.log('service',rollNumber)
+    const response = await axios.get(`http://localhost:3000/api/admin/student/?rollNumber=${rollNumber}`,
     {
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
@@ -44,6 +45,7 @@ export async function getStudentById({rollNumber}){
     if(!response){
         throw new Error('cant post data');
     }
+    console.log('response',response.data)
     return response.data;
 };
 
@@ -51,7 +53,7 @@ export async function getStudentById({rollNumber}){
 
 export async function getResultByID({rollNumber}){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(`/api/admin/result/${rollNumber}`,
+    const response = await axios.get(`http://localhost:3000/api/admin/result/${rollNumber}`,
     {
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
@@ -66,7 +68,7 @@ export async function getResultByID({rollNumber}){
 
 export async function getBasicInfo({rollNumber}){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(`/api/admin/basic-info`,
+    const response = await axios.get(`http://localhost:3000/api/admin/basic-info`,
     {
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
@@ -83,7 +85,7 @@ export async function getBasicInfo({rollNumber}){
 // ADD NEW STUDENT
 export async function addNewStudent(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/department/add-new-student',
+    const response = await axios.post('http://localhost:3000/api/department/add-new-student',
         data,
         {
             headers:{
@@ -101,7 +103,7 @@ export async function addNewStudent(data){
 // ADD ACADEMIC INFO OF STUDENT
 export async function addAcademicInfo(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/department/add-academic-info',
+    const response = await axios.post('http://localhost:3000/api/department/add-academic-info',
         data,
         {
             headers:{
@@ -118,7 +120,7 @@ export async function addAcademicInfo(data){
 //BULK UPLOAD STUDENT
 export async function bulkUploadStudent(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/users/create-bulk-users',
+    const response = await axios.post('http://localhost:3000/api/users/create-bulk-users',
         data,
         {
             headers:{
@@ -135,7 +137,7 @@ export async function bulkUploadStudent(data){
 // BULK UPLOAD STUDENT'S SCHOOL INFORMATION
 export async function bulkUploadSchoolInfo(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/users/bulk-school-info',
+    const response = await axios.post('http://localhost:3000/api/users/bulk-school-info',
         data,
         {
             headers:{
@@ -153,7 +155,7 @@ export async function bulkUploadSchoolInfo(data){
 // BULK UPLOAD RESULT 
 export async function bulkUploadResult(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/result/bulk-upload',
+    const response = await axios.post('http://localhost:3000/api/result/bulk-upload',
         data,
         {
             headers:{
@@ -170,7 +172,7 @@ export async function bulkUploadResult(data){
 // GET SUBJECTS OF GIVEN FACULTY AND SEMESTER
 export async function getSubjectBySemester({semester,faculty}){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(`/api/subjects`,
+    const response = await axios.get(`http://localhost:3000/api/subjects`,
     {
         params:{
             semester,
@@ -192,7 +194,7 @@ export async function getSubjectBySemester({semester,faculty}){
 // ADD R3ESULT OF INDIVIDUAL STUDENT 
 export async function addResult(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/result/add-result',
+    const response = await axios.post('http://localhost:3000/api/result/add-result',
         data,
         {
             headers:{
@@ -209,7 +211,7 @@ export async function addResult(data){
 // GET RESULT OF STUDENT BY SEMESTER
 export async function getResultBySem({semester, rollNumber}){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get(`/api/admin/result-by-sem/${rollNumber}/${semester}`,
+    const response = await axios.get(`http://localhost:3000/api/admin/result-by-sem/${rollNumber}/${semester}`,
         {
             headers:{
                 'Authorization': 'Bearer '+`${token.token}`,
@@ -226,7 +228,7 @@ export async function getResultBySem({semester, rollNumber}){
 // EDIT RESULT 
 export async function editResult(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/result/edit-result',
+    const response = await axios.post('http:localhost:3000/api/result/edit-result',
         data,
         {
             headers:{
@@ -244,7 +246,7 @@ export async function editResult(data){
 
 export async function updateBacklogs(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('/api/result/update-backlogs',
+    const response = await axios.post('http:localhost:3000/api/result/update-backlogs',
         data,
         {
             headers:{
@@ -262,7 +264,7 @@ export async function updateBacklogs(data){
 
 export async function filterBySubmission({currentSemester,type}){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get('/api/department/form-submitted-list',
+    const response = await axios.get('http://localhost:3000/api/department/form-submitted-list',
         {
             headers:{
                 'Authorization': 'Bearer '+`${token.token}`,
@@ -281,7 +283,7 @@ export async function filterBySubmission({currentSemester,type}){
 
 export async function filterByRegistration({faculty,type}){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get('/api/admin/filter-registration',
+    const response = await axios.get('http://localhost:3000/api/admin/filter-registration',
         {
             headers:{
                 'Authorization': 'Bearer '+`${token.token}`,
