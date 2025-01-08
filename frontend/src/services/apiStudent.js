@@ -63,7 +63,7 @@ export async function getResults(){
 
 export async function getBackLogs(){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get('http://localhost:300/api/result/backlog',{
+    const response = await axios.get('/api/result/backlog',{
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
         }
@@ -77,7 +77,7 @@ export async function getBackLogs(){
 
 export async function postExamForm(formData){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('http://localhost:300/api/users/generate-form',{formData},
+    const response = await axios.post('/api/users/generate-form',{formData},
     {
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
@@ -92,7 +92,7 @@ export async function postExamForm(formData){
 
 export async function getExamForm(){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get('http://localhost:300/api/users/download-form',
+    const response = await axios.get('/api/users/download-form',
     {
 
         headers:{
@@ -117,7 +117,7 @@ export async function getExamForm(){
 
 export async function getGradeCount(){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get('http://localhost:300/api/result/grade-count',{
+    const response = await axios.get('/api/result/grade-count',{
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
         }
@@ -130,7 +130,7 @@ export async function getGradeCount(){
 
 export async function getFeeStatus(){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get('http://localhost:300/api/users/get-fee-status',{
+    const response = await axios.get('/api/users/get-fee-status',{
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
         }
@@ -144,7 +144,7 @@ export async function getFeeStatus(){
 
 export async function uploadPic(formData){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('http://localhost:300/api/users/upload-pic',
+    const response = await axios.post('/api/users/upload-pic',
     formData,
     {
         headers:{
@@ -160,7 +160,7 @@ export async function uploadPic(formData){
 
 export async function uploadSignature(formData){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('http://localhost:300/api/users/upload-signature',
+    const response = await axios.post('/api/users/upload-signature',
     formData,
     {
         headers:{

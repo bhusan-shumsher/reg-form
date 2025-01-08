@@ -1,6 +1,6 @@
 import axios from "axios";
 export async function login({email,password}){
-    const response = await axios.post('http://localhost:3000/api/registration/login',{
+    const response = await axios.post('/api/registration/login',{
         email,
         password
     });
@@ -19,7 +19,7 @@ export async function saveRegDetails(formData){
     const token = JSON.parse(localStorage.getItem('token'));
     console.log(token);
     console.log(formData);
-    const response = await axios.post('http://localhost:300/api/registration/savedata',
+    const response = await axios.post('/api/registration/savedata',
     formData,
     {
         headers:{
@@ -35,7 +35,7 @@ export async function saveRegDetails(formData){
 
 export async function uploadSignature(formData){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('http://localhost:300/api/registration/upload-signature',
+    const response = await axios.post('/api/registration/upload-signature',
     formData,
     {
         headers:{
@@ -51,7 +51,7 @@ export async function uploadSignature(formData){
 
 export async function uploadExtra(formData){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('http://localhost:300/api/registration/extra-upload',
+    const response = await axios.post('/api/registration/extra-upload',
     formData,
     {
         headers:{
@@ -67,7 +67,7 @@ export async function uploadExtra(formData){
 
 export async function generateForm(){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('http://localhost:3000/api/registration/form',null,
+    const response = await axios.post('/api/registration/form',null,
     {
         headers:{
             'Authorization': 'Bearer '+`${token.token}`
@@ -82,7 +82,7 @@ export async function generateForm(){
 
 export async function getRegForm(){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.get('http://localhost:3000/api/registration/download',
+    const response = await axios.get('/api/registration/download',
     {
 
         headers:{
@@ -106,7 +106,7 @@ export async function getRegForm(){
 
 export async function tickDocs(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('http://localhost:3000/api/registration/tickdocs',data,
+    const response = await axios.post('/api/registration/tickdocs',data,
     {
         headers:{
             'Authorization': 'Bearer '+`${token.token}`

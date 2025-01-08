@@ -1,6 +1,6 @@
 import axios from "axios";
 export async function login({email,password}){
-    const response = await axios.post('http://localhost:3000/api/users/login',{
+    const response = await axios.post('/api/users/login',{
         email,
         password
     });
@@ -18,7 +18,7 @@ export async function logout(){
 
 export async function changePassword({password,confirmPassword}){
     console.log(password)
-    const response = await axios.post('http://localhost:3000/api/users/change-password',{
+    const response = await axios.post('/api/users/change-password',{
         password,
         confirmPassword
     },{
