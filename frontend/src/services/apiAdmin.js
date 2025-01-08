@@ -228,7 +228,7 @@ export async function getResultBySem({semester, rollNumber}){
 // EDIT RESULT 
 export async function editResult(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('http:localhost:3000/api/result/edit-result',
+    const response = await axios.post('/api/result/edit-result',
         data,
         {
             headers:{
@@ -246,7 +246,7 @@ export async function editResult(data){
 
 export async function updateBacklogs(data){
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post('http:localhost:3000/api/result/update-backlogs',
+    const response = await axios.post('/api/result/update-backlogs',
         data,
         {
             headers:{
