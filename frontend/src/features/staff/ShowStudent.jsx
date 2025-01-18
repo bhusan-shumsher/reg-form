@@ -4,7 +4,6 @@ export default function ShowStudent({students}){
     if(students.length === 0){
         return <h1>No student</h1>
     }else{
-        console.log('****',students)
         return (
             <>
     

@@ -97,7 +97,6 @@ exports.changePassword = async (req,res,next)=>{
     const {password, confirmPassword} = req.body;
     if(password === confirmPassword){
         const id = req.userId;
-        console.log('id', id);
         const a = await User.findById(id);
         const hashedPassword = await bcrypt.hash(password,12);
         const updatedUser = await User.findByIdAndUpdate(id,{

@@ -4,7 +4,7 @@ const User = require('../models/user');
 const SchoolInfo = require('../models/school-info');
 
 exports.uploadSubjects = async (req,res,next)=>{
-    const file = req.file;
+    const file = req.files[0];
     const data = util.ex2json(file.path, file.filename, 'result');
      const result = await Subject.insertMany(data);
      if(result){

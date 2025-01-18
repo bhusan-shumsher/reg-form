@@ -226,7 +226,7 @@ var template = handlebars.compile(secondaryHtml);
 
   // rename folder 
   try{
-    fs.renameSync(`src/files/submitted-form/${faculty}/${data[0].email}`,`src/files/submitted-form/${faculty}/${data[0].email}-PRINT`)
+    fs.renameSync(`src/files/submitted-form/${faculty}/${data[0].email}`,`src/files/submitted-form/${faculty}/${data[0].email}-OK`)
 
   }catch(err){
     console.log('RENAMING IS FUCKED');
@@ -243,7 +243,7 @@ const triplicate = new Triplicate({
 });
 await triplicate.save();
 
- await User.updateOne({rollNumber},{$set:{formSubmitted: true}});
+ await User.updateOne({rollNumber},{$set:{formSubmitted: true,submittedOn: new Date()}});
 
   return res.status(200).send({message:'success !'});
 }catch(err){
@@ -255,7 +255,7 @@ await triplicate.save();
 
 exports.downloadForm = async (req,res,next)=>{
     const {rollNumber,faculty,email} = req;
-    const fileDir = path.join('src','files','submitted-form',`${faculty}`,`${email}-PRINT`);
+    const fileDir = path.join('src','files','submitted-form',`${faculty}`,`${email}-OK`);
     const absPath = path.resolve(fileDir);
 
     const stream = fs.createReadStream(absPath+`/${faculty}-${rollNumber}-entrance.pdf`);

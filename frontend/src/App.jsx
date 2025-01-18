@@ -35,7 +35,7 @@ import AddResult from "./features/staff/department/AddResult";
 import VerifyResult from "./features/staff/department/VerifyResult";
 import EditResult from "./features/staff/department/EditResult";
 import BackPaperUpload from "./features/staff/department/BackPaperUpload";
-
+import SubjectList  from "./features/staff/department/ListSubject";
 import RegistrationLogin from "./features/registration/RegistrationLogin";
 import RegistrationForm from "./features/registration/RegistrationForm";
 import RegistrationProtectedRoute from "./features/registration/RegistrationProtectedRoute";
@@ -144,12 +144,16 @@ const router = createBrowserRouter([
         element: <EditResult/>
       },
       {
-        path:'department/update-backlogs',
+        path:'/department/update-backlogs',
         element: <BackPaperUpload/>
       },
       {
-        path:'department/form-submitted',
+        path:'/department/form-submitted',
         element: <ListFormSubmitted/>
+      },
+      {
+        path:'/department/subjects',
+        element: <SubjectList/>
       }
     ]
   },

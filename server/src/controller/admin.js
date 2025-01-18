@@ -39,7 +39,6 @@ exports.searchStudent = async (req,res,next)=>{
         }
          
      if(collegeName){
-        console.log('cole',collegeName);
         students = await SchoolInfo.aggregate([
             {$match:{$expr:{$regexMatch:{ input:'$collegeName', regex:collegeName,options:'i'}}}},
             {$lookup:{from:'users',localField:'rollNumber', foreignField:'rollNumber', as:'info'}},

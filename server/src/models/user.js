@@ -39,7 +39,7 @@ const userSchema = new Schema({
     },
     faculty:{
         type: String,
-        enum:['BEELX','BESE','BECE','BEIT','BECIVIL','BCA','BBA'],
+        enum:['BEELX','BESE','BECE','BEIT','BECIVIL','BCA','BBA','BARCH'],
         // required: true
     },
     semester:{
@@ -133,6 +133,9 @@ const userSchema = new Schema({
     formSubmitted:{
         type: Boolean,
         default: false
+    },
+    submittedOn:{
+        type: Date
     }
 });
 

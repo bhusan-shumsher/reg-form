@@ -97,6 +97,7 @@ export default function ListFormSubmitted(){
                     <th>Name</th>
                     <th>Semester</th>
                     <th className="text-end">Status</th>
+                    <th>Submission Date</th>
                     </tr>
                     </thead>
                                     <tbody>
@@ -134,6 +135,7 @@ function showList(students){
                     <span className="badge badge-danger">Unsubmitted</span>
                 }
                 </td>
+                <td>{st.submittedOn}</td>
 </tr>
                 );
             })

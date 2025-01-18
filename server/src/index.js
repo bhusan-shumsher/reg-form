@@ -13,7 +13,9 @@ const admintRoutes = require('./routes/admin');
 const accountRoutes = require('./routes/account');
 const ftpRoutes = require('./routes/ftp');
 const registration = require('./routes/registration');
-
+const teacherRoutes = require('./routes/teacher');
+const subjectRoutes = require('./routes/subject');
+const logsRoutes = require('./routes/logs');
 const fileStorage = multer.diskStorage({
     destination: (req,file,cb)=>{
         cb(null,'src/files/submitted-form');
@@ -50,7 +52,9 @@ app.use(admintRoutes);
 app.use(accountRoutes);
 app.use(ftpRoutes);
 app.use(registration);
-
+app.use(teacherRoutes);
+app.use(subjectRoutes);
+app.use(logsRoutes);
 const start = async()=>{
     try{
         await mongoose.connect('mongodb://mongo/ncit-portal');
