@@ -48,13 +48,19 @@ if(data[0].faculty === 'BBA'){
 }
 newData.backSubjects = backSubjects;
 newData.regularSubjects = regularSubjects;
-newData.allSubjects = removeEmptyObjects(regularSubjects).concat(renameKey(removeEmptyObjects(backSubjects)));
+if(Array.isArray(backSubjects) && !backSubjects.length){
+    newData.allSubjects = removeEmptyObjects(regularSubjects).concat(renameKey(removeEmptyObjects(backSubjects)));
+
+}else{
+    newData.allSubjects = removeEmptyObjects(regularSubjects);
+
+}
 newData.firstName = data[0].firstName.toUpperCase();
 newData.lastName = data[0].lastName.toUpperCase();
 newData.middleName = data[0].middleName.toUpperCase();
 newData.faculty = data[0].faculty;
 newData.examRollNumber = data[0].examRollNumber;
-newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
+// newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
 newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.urlPath)}`;
 newData.puRegistrationNumber = data[0].puRegistrationNumber;
