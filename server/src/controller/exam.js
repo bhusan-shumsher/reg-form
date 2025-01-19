@@ -231,17 +231,17 @@ var template = handlebars.compile(secondaryHtml);
   }catch(err){
     console.log('RENAMING IS FUCKED');
   }
-const triplicate = new Triplicate({
-    semester: data[0].currentSemester,
-    faculty :data[0].faculty,
-    rollNumber: data[0].rollNumber,
-    examRollNumber: data[0].examRollNumber,
-    puRegistrationNumber: data[0].puRegistrationNumber,
-    backSubjects: req.body.formData.backSubjects,
-    regularSubjects: req.body.formData.regularSubjects,
-    backCount: req.body.formData.backSubjects.length
-});
-await triplicate.save();
+// const triplicate = new Triplicate({
+//     semester: data[0].currentSemester,
+//     faculty :data[0].faculty,
+//     rollNumber: data[0].rollNumber,
+//     examRollNumber: data[0].examRollNumber,
+//     puRegistrationNumber: data[0].puRegistrationNumber,
+//     backSubjects: req.body.formData.backSubjects,
+//     regularSubjects: req.body.formData.regularSubjects,
+//     backCount: req.body.formData.backSubjects.length
+// });
+// await triplicate.save();
 
  await User.updateOne({rollNumber},{$set:{formSubmitted: true,submittedOn: new Date()}});
 
