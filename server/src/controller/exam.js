@@ -49,10 +49,10 @@ if(data[0].faculty === 'BBA'){
 newData.backSubjects = backSubjects;
 newData.regularSubjects = regularSubjects;
 if(Array.isArray(backSubjects) && !backSubjects.length){
-    newData.allSubjects = removeEmptyObjects(regularSubjects).concat(renameKey(removeEmptyObjects(backSubjects)));
+    newData.allSubjects = removeEmptyObjects(regularSubjects);
 
 }else{
-    newData.allSubjects = removeEmptyObjects(regularSubjects);
+    newData.allSubjects = removeEmptyObjects(regularSubjects).concat(renameKey(removeEmptyObjects(backSubjects)));
 
 }
 newData.firstName = data[0].firstName.toUpperCase();
