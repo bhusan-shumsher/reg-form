@@ -135,7 +135,7 @@ function showList(students){
                     <span className="badge badge-danger">Unsubmitted</span>
                 }
                 </td>
-                <td>{st.submittedOn}</td>
+                <td>{new Date(st.submittedOn).toString()}</td>
 </tr>
                 );
             })
