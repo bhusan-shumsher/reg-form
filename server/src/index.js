@@ -57,9 +57,9 @@ app.use(subjectRoutes);
 app.use(logsRoutes);
 const start = async()=>{
     try{
-        // await mongoose.connect('mongodb://mongo/ncit-portal');
+        await mongoose.connect('mongodb://mongo/ncit-portal');
         // - FOR LOCAL DEV SETUP
-        await mongoose.connect('mongodb://0.0.0.0:27017/ncit') 
+        // await mongoose.connect('mongodb://0.0.0.0:27017/ncit') 
         console.log('database connected');
     }catch(err){
         console.log(err);
