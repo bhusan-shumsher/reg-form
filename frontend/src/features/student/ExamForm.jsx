@@ -80,7 +80,9 @@ export default function ExamForm(){
     function onSelectElective(e){
         e.preventDefault();
         setChooseElective(true);
-        console.log(chooseElective)
+        console.log(chooseElective);
+        console.log(data);
+
     }
     function onSubmit(e){
         // console.log('BACKLOGS--->',backLogs);
@@ -135,7 +137,7 @@ export default function ExamForm(){
 </div>
         );
     }
-    if(userData.data.currentSemester > 5 || !chooseElective){
+    if(!(userData.data.currentSemester > 5) && !chooseElective){
         console.log(userData);
         console.log(electiveSubject);
         return (
@@ -300,7 +302,7 @@ function RadioButton ({elective}) {
             <label>
             <input 
                 type="radio"
-                onChange={(e)=>onChange(e,elective)}
+                onChange={(e)=>onClick(e,elective)}
                 name='elective'
              /> {elective.name} ( | CourseCode: {elective.courseCode})
             </label>
