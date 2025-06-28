@@ -71,7 +71,7 @@ export default function ExamForm(){
         } 
 
     }
-    function chooseElective(e,elect){
+    function electiveSelect(e,elect){
         //ELECTVE CHOICE 
         if(e.target.checked){
             data.push(elective);
@@ -164,7 +164,7 @@ export default function ExamForm(){
             return <RadioButton 
                 elective ={elect}
                 key={index}
-                onClick={chooseElective}
+                onClick={electiveSelect}
                 />
      
     })}
