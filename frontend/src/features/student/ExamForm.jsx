@@ -74,7 +74,7 @@ export default function ExamForm(){
     function electiveSelect(e,elect){
         //ELECTVE CHOICE 
         if(e.target.checked){
-            data.push(elective);
+            data.push(elect);
         }
     }
     function onSelectElective(e){
