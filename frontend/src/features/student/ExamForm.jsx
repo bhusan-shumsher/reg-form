@@ -71,6 +71,16 @@ export default function ExamForm(){
         } 
 
     }
+    function chooseElective(e,elect){
+        //ELECTVE CHOICE 
+        if(e.target.checked){
+            data.push(elective);
+        }
+    }
+    function onSelectElective(e){
+        e.preventDefault();
+        setChooseElective(true);
+    }
     function onSubmit(e){
         // console.log('BACKLOGS--->',backLogs);
         e.preventDefault();
@@ -124,7 +134,7 @@ export default function ExamForm(){
 </div>
         );
     }
-    if(userData.data.currentSemester > 5){
+    if(userData.data.currentSemester > 5 || !chooseElective){
         console.log(userData);
         console.log(electiveSubject);
         return (
@@ -143,7 +153,7 @@ export default function ExamForm(){
 </div>
 </div>
         <div class="form-group row">
-<label class="col-form-label col-md-2"> List of Backlogs</label>
+<label class="col-form-label col-md-2"> List of Electives</label>
 <label><font color='red'> *You can choose only ONE elective</font></label>
 <br></br>
 <br></br>
@@ -154,7 +164,7 @@ export default function ExamForm(){
             return <RadioButton 
                 elective ={elect}
                 key={index}
-                onClick={onClick}
+                onClick={chooseElective}
                 />
      
     })}
@@ -289,7 +299,8 @@ function RadioButton ({elective}) {
             <label>
             <input 
                 type="radio"
-                onChange={(e)=>onClick(e,back)}
+                onChange={(e)=>onChange(e,elective)}
+                name='elective'
              /> {elective.name} ( | CourseCode: {elective.courseCode})
             </label>
         </div>
