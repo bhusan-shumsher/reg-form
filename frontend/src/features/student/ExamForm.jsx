@@ -124,8 +124,8 @@ export default function ExamForm(){
 </div>
         );
     }
-    if(data.currentSemester > 5){
-        console.log(data);
+    if(userData.currentSemester > 5){
+        console.log(userData);
         console.log(electiveSubject);
         return (
             <div>
