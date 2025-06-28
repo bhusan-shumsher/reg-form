@@ -128,9 +128,48 @@ export default function ExamForm(){
         console.log(userData);
         console.log(electiveSubject);
         return (
-            <div>
-                Time to show elective 
-            </div>
+            <>
+        <div class="page-wrapper">
+<div class="content container-fluid">
+<div class="page-header">
+<div class="row">
+<div class="col">
+<h3 class="page-title">Please select</h3>
+<ul class="breadcrumb">
+<li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
+<li class="breadcrumb-item active">Backlogs</li>
+</ul>
+</div>
+</div>
+</div>
+        <div class="form-group row">
+<label class="col-form-label col-md-2"> List of Backlogs</label>
+<label><font color='red'> *You can choose only ONE elective</font></label>
+<br></br>
+<br></br>
+<div class="col-md-10">
+        <form>
+        {electiveSubject.map((elect,index)=>{
+            // console.log('backpaper',backLogData);
+            return <RadioButton 
+                elective ={elect}
+                key={index}
+                onClick={onClick}
+                />
+     
+    })}
+            <button 
+                class="btn btn-primary" 
+                type="submit"
+                onClick={e=>onSubmit(e)}
+                >Continue</button>
+               
+        </form>  
+</div>
+</div>
+</div>
+</div>
+    </>
         );
     }
     if(!selected){
