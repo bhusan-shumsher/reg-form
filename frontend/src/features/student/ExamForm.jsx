@@ -4,6 +4,7 @@ import styled, {css}from 'styled-components';
 import {useCurrentFailList} from '../../hooks/useCurrentFailList';
 import { useCurrentSubject } from '../../hooks/useCurrentSubject';
 import { useFeeStatus } from '../../hooks/useFeeStatus';
+import {useElective} from '../../hooks/useElective';
 import RegularSubjectTable  from '../../ui/RegularSubjectTable';
 import BacklogTable from '../../ui/BacklogTable';
 import {useState} from 'react';
@@ -47,7 +48,7 @@ color: #2e5cb8;
 
 
 export default function ExamForm(){
-
+    const {data: electiveSubject, isLoading: electiveLoading,error:electiveError,isError:electiveIsError} = useElective();
     const {data:backLogData,isLoading: backlogIsLoading,error:backlogError,isError:backlogIsError} = useCurrentFailList();
     const {data,isLoading: currentSubjectIsLoading,error,isError} = useCurrentSubject();
     const {data:userData,isLoading:userIsLoadin,error:userError,isError:userIsError} =usePersonalInfo();
@@ -55,6 +56,8 @@ export default function ExamForm(){
     const [backLogs, setBackLogs] = useState([]);
     const [selected, setSelected] = useState(false);
     const {postForm,isLoading} = useExamForm();
+    const [elective,setElective] = useState([]);
+    const [chooseElective, setChooseElective] = useState(false);
     function onClick(e,back){
         if(e.target.checked){
             setBackLogs([
@@ -87,7 +90,7 @@ export default function ExamForm(){
         form.backSubjects = backLogs;
         postForm(form);
     }
-    if(isLoading || backlogIsLoading || currentSubjectIsLoading || userIsLoadin || feeLoading){
+    if(isLoading || backlogIsLoading || currentSubjectIsLoading || userIsLoadin || feeLoading || electiveLoading){
         return(
             <div className="page-wrapper">
             <div className="content container-fluid">
@@ -119,6 +122,13 @@ export default function ExamForm(){
 </div>
 </div>
 </div>
+        );
+    }
+    if(data.semester > 5){
+        return (
+            <div>
+                Time to show elective 
+            </div>
         );
     }
     if(!selected){
@@ -206,8 +216,6 @@ export default function ExamForm(){
                 </>
             ); 
         }
-        
-    
     
 }
 
@@ -229,7 +237,20 @@ function CheckBox ({back,semester,onClick}){
 
 
 
-const toBase64=(data)=>{
-    const base64 = btoa(String.fromCharCode(... new Uint8Array(data.data)));
-    return base64;
+// const toBase64=(data)=>{
+//     const base64 = btoa(String.fromCharCode(... new Uint8Array(data.data)));
+//     return base64;
+// }
+
+function RadioButton ({elective}) {
+    return (
+        <div className="radio">
+            <label>
+            <input 
+                type="radio"
+                onChange={(e)=>onClick(e,back)}
+             /> {elective.name} ( | CourseCode: {elective.courseCode})
+            </label>
+        </div>
+    );
 }

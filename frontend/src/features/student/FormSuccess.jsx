@@ -23,12 +23,12 @@ function Viewer({url}){
     return (
         <>
     <iframe height="1000" width="1000" src={url} type="application/pdf"/>
-    {/* <object
+    <object
       data={url}
       type="application/pdf"
       width="100%"
       height="500px"
- ></object> */}
+ ></object>
     </>
 
     );
