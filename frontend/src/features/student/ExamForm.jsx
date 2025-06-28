@@ -124,7 +124,9 @@ export default function ExamForm(){
 </div>
         );
     }
-    if(data.semester > 5){
+    if(data.currentSemester > 5){
+        console.log(data);
+        console.log(electiveSubject);
         return (
             <div>
                 Time to show elective 
