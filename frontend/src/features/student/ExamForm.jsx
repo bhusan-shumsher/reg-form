@@ -171,7 +171,7 @@ export default function ExamForm(){
             <button 
                 class="btn btn-primary" 
                 type="submit"
-                onClick={e=>onSubmit(e)}
+                onClick={e=>onSelectElective(e)}
                 >Continue</button>
                
         </form>  
