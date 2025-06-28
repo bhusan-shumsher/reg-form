@@ -78,6 +78,7 @@ export default function ExamForm(){
         }
     }
     function onSelectElective(e){
+        console.log(e.target);
         e.preventDefault();
         setChooseElective(true);
         console.log(chooseElective);
