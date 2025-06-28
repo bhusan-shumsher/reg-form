@@ -82,7 +82,7 @@ export default function ExamForm(){
         e.preventDefault();
         setChooseElective(true);
         console.log(chooseElective);
-        console.log(data);
+        console.log('all subs',data);
 
     }
     function onSubmit(e){
