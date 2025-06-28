@@ -2,6 +2,7 @@ const util = require('../utils/ex-to-json')
 
 const Subject = require('../models/currentSubject');
 const Teacher = require('../models/teacher');
+const Elective = require('../models/elective');
 
 exports.addSubject = async(req,res,next)=>{
     try{
@@ -75,5 +76,37 @@ exports.uploadLessonPlan = async(req,res,next)=>{
     }catch(err){
         console.log(err);
         return res.status(500).send({message:'Unable to upload Excel Sheet'});
+    }
+}
+
+// FOR ELECTIVE SUBJECTS
+
+exports.getAllElectives = async(req,res,next)=>{
+    console.log('list all electives')
+    try{
+        const electiveList = await Elective.find({});
+        console.log(electiveList)
+        if(Array.isArray(electiveList) && electiveList.length > 0){
+            return res.send(electiveList);
+        }else{
+            return res.send({message:'No Electives found!'})
+        }
+    }catch(err){
+        return res.status(500).send({message:'Unable to fetch elective list!'})
+    }
+}
+
+exports.addElective = async(req,res,next)=>{
+    try{
+        console.log('TRYING TO ADD ELECTIVE ');
+        const {name,creditHour,courseCode} = req.body;
+        console.log(name,creditHour,courseCode);
+        const elective = new Elective({name,creditHour,courseCode});
+        await elective.save();
+        res.status(201).send({message:'elective added'});
+    }catch(err){
+        console.log(err);
+        return res.status(500).send({message:'Unable to add elective!'})
+
     }
 }

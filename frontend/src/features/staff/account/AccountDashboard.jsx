@@ -77,6 +77,7 @@ export default function AccountDashboard(){
     <option value="BEIT">BEIT</option>
     <option value="BECE">BECE</option>
     <option value="BEELX">BEELX</option>
+    <option value="BARCH">BARCH</option>
 </select>
 </div>
 

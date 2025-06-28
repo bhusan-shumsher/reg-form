@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {body} = require('express-validator');
 const subjectController = require('../controller/subject');
+
 // router.post('/api/users/signup',[
 //     body('email')
 //         .isEmail()
@@ -17,4 +18,8 @@ router.post('/api/subject/add',subjectController.addSubject);
 router.get('/api/subject/list',subjectController.listAllSubject);
 router.get('/api/subject/:_id',subjectController.getSubject);
 router.post('/api/subject/lessonplan',subjectController.uploadLessonPlan);
+// for elective
+router.get('/api/elective',subjectController.getAllElectives);
+router.post('/api/elective',subjectController.addElective);
+
 module.exports = router;
