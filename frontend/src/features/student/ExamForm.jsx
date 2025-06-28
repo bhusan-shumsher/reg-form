@@ -80,6 +80,7 @@ export default function ExamForm(){
     function onSelectElective(e){
         e.preventDefault();
         setChooseElective(true);
+        console.log(chooseElective)
     }
     function onSubmit(e){
         // console.log('BACKLOGS--->',backLogs);
