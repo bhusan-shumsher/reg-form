@@ -73,6 +73,7 @@ export default function ExamForm(){
     }
     function electiveSelect(e,elect){
         //ELECTVE CHOICE 
+        console.log('choose',e.target.checked);
         if(e.target.checked){
             data.push(elect);
         }
@@ -138,7 +139,7 @@ export default function ExamForm(){
 </div>
         );
     }
-    if(userData.data.currentSemester > 5 && !chooseElective){
+    if(userData.data.currentSemester > 4 && !chooseElective){
         console.log(userData);
         console.log(electiveSubject);
         return (
@@ -297,7 +298,7 @@ function CheckBox ({back,semester,onClick}){
 //     return base64;
 // }
 
-function RadioButton ({elective}) {
+function RadioButton ({elective,onClick}) {
     return (
         <div className="radio">
             <label>
