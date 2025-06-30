@@ -86,12 +86,18 @@ export default function ExamForm(){
         }
     }
     function onSelectElective(e){
-        console.log(e.target);
         e.preventDefault();
-        setChooseElective(true);
-        console.log(chooseElective);
-        console.log('all subs',data);
 
+        if(elective.length < 1){
+            toast.error('You need to choose one Elective Subject !!');
+
+        }else{
+            setChooseElective(true);
+            console.log(chooseElective);
+            console.log('all subs',data);
+
+        }
+        
     }
     function onSubmit(e){
         // console.log('BACKLOGS--->',backLogs);
