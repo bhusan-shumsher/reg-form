@@ -15,6 +15,7 @@ export default function RegularSubjectTable({subjects}){
 <th>Course Code</th>
 <th>Course Name</th>
 <th>Credit Hour</th>
+<th>Remarks</th>
 </tr>
 </thead>
 <tbody>
