@@ -37,6 +37,7 @@ export default function RegularSubjectTable({subjects}){
     <td>{data.courseCode}</td>
     <td>{data.subjectName}</td>
     <td>{data.creditHour}</td>
+    <td>{data.hasOwnProperty('remarks') ? data.remarks : ' '}</td>
     </tr>
     )
 };

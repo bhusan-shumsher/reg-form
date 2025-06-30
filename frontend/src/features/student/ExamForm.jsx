@@ -75,6 +75,8 @@ export default function ExamForm(){
         //ELECTVE CHOICE 
         console.log('choose',e.target.checked);
         if(e.target.checked){
+            elect.subjectName = elect.name;
+            elect.remarks = 'Elective';
             data.push(elect);
         }
     }
