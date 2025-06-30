@@ -114,7 +114,8 @@ export default function ExamForm(){
     }
     function submitForm(){
         const form = new Object();
-        form.regularSubjects = currrentSemesterSub;
+        form.regularSubjects = data;
+        form.elective = elective;
         form.backSubjects = backLogs;
         postForm(form);
     }

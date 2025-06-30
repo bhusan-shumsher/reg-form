@@ -10,6 +10,7 @@ const Triplicate = require('../models/triplicate');
 exports.generateForm = async (req,res,next)=>{
 try{
 
+    
 // get roll number
 const {rollNumber,faculty} = req; 
 // get current sem, ern 
@@ -36,9 +37,12 @@ if(data[0].image.urlPath === null || data[0].image.urlPath === undefined){
 if(data[0].signature.sign === null || data[0].signature.sign === undefined){
     throw new Error('Upload signature !!');
 }
+let bothCoreAndElective = req.body.formData.regularSubjects.concat(req.body.formData.elective);
 const date = new Date();
 const dateStamp = date.getDate() + '-' + (date.getMonth() +1) +'-' + date.getFullYear();
-const regularSubjects = util.arrayPadding(req.body.formData.regularSubjects,10);
+// const regularSubjects = util.arrayPadding(req.body.formData.regularSubjects,10);
+const regularSubjects = util.arrayPadding(bothCoreAndElective,10);
+
 const backSubjects = util.arrayPadding(req.body.formData.backSubjects, 8);
 const newData = new Object();
 // ADJUSTMENT FOR BBA
