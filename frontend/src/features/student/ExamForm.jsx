@@ -58,7 +58,7 @@ export default function ExamForm(){
     const {postForm,isLoading} = useExamForm();
     const [elective,setElective] = useState([]);
     const [chooseElective, setChooseElective] = useState(false);
-    const  [currrentSemesterSub,setCurrentSemesterSub] = useState(data);
+    // const  [currrentSemesterSub,setCurrentSemesterSub] = useState(data);
     function onClick(e,back){
         if(e.target.checked){
             setBackLogs([
@@ -79,10 +79,8 @@ export default function ExamForm(){
             elect.subjectName = elect.name;
             elect.remarks = 'Elective';
             // data.push(elect);
-            setCurrentSemesterSub([
-                ...currrentSemesterSub,
-                elect
-            ])
+            setElective([]);
+            setElective(elect);
         }
     }
     function onSelectElective(e){
@@ -262,7 +260,7 @@ export default function ExamForm(){
             </div>
             
             <div class="cols">
-            <RegularSubjectTable subjects={currrentSemesterSub}/>
+            <RegularSubjectTable subjects={data} elective={elective}/>
             <BacklogTable subjects={backLogs}/>
             {feeData.duePaid ?
             <button 

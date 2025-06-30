@@ -1,6 +1,6 @@
 
 
-export default function RegularSubjectTable({subjects}){
+export default function RegularSubjectTable({subjects,elective}){
     return (
         <div class="col-lg-10">
 <div class="card">
@@ -19,7 +19,10 @@ export default function RegularSubjectTable({subjects}){
 </tr>
 </thead>
 <tbody>
-   { subjects.map((sub,index)=>{
+   { subjects?.map((sub,index)=>{
+    return <SubjectRow data={sub}/>
+   })}
+   { elective?.map((sub,index)=>{
     return <SubjectRow data={sub}/>
    })}
 </tbody>
@@ -38,7 +41,7 @@ export default function RegularSubjectTable({subjects}){
     <td>{data.courseCode}</td>
     <td>{data.subjectName}</td>
     <td>{data.creditHour}</td>
-    <td>{data.hasOwnProperty('remarks') ? data.remarks : ' '}</td>
+    <td>{data.hasOwnProperty('remarks')?data['remarks'] : ''}</td>
     </tr>
     )
 };
