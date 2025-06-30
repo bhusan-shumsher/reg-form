@@ -80,9 +80,9 @@ export default function ExamForm(){
             elect.remarks = 'Elective';
             // data.push(elect);
             setElective([]);
-            setElective([
-                ...elective,
-                elect]);
+            console.log('before',elective);
+            setElective([elect]);
+            console.log('after',elective);
         }
     }
     function onSelectElective(e){
@@ -171,7 +171,7 @@ export default function ExamForm(){
 <br></br>
 <div class="col-md-10">
         <form>
-        {electiveSubject.map((elect,index)=>{
+        {electiveSubject?.map((elect,index)=>{
             // console.log('backpaper',backLogData);
             return <RadioButton 
                 elective ={elect}
@@ -218,7 +218,7 @@ export default function ExamForm(){
 <br></br>
 <div class="col-md-10">
         <form>
-        {backLogData.map((backPaper,index)=>{
+        {backLogData?.map((backPaper,index)=>{
             // console.log('backpaper',backLogData);
             return <CheckBox 
                 back={backPaper.grades} 
