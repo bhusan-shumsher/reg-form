@@ -80,7 +80,9 @@ export default function ExamForm(){
             elect.remarks = 'Elective';
             // data.push(elect);
             setElective([]);
-            setElective(elect);
+            setElective([
+                ...elective,
+                elect]);
         }
     }
     function onSelectElective(e){

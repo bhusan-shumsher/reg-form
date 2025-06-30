@@ -1,6 +1,7 @@
 
 
 export default function RegularSubjectTable({subjects,elective}){
+    console.log('electives',elective);
     return (
         <div class="col-lg-10">
 <div class="card">
@@ -41,7 +42,7 @@ export default function RegularSubjectTable({subjects,elective}){
     <td>{data.courseCode}</td>
     <td>{data.subjectName}</td>
     <td>{data.creditHour}</td>
-    <td>{data.hasOwnProperty('remarks')?data['remarks'] : ''}</td>
+    <td>{data.hasOwnProperty('remarks') ? data['remarks'] : ''}</td>
     </tr>
     )
 };
