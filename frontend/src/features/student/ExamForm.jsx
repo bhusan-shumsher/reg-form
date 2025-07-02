@@ -80,9 +80,9 @@ export default function ExamForm(){
             elect.remarks = 'Elective';
             // data.push(elect);
             setElective([]);
-            console.log('before',elective);
+            // console.log('before',elective);
             setElective([elect]);
-            console.log('after',elective);
+            // console.log('after',elective);
         }
     }
     function onSelectElective(e){
@@ -93,8 +93,8 @@ export default function ExamForm(){
 
         }else{
             setChooseElective(true);
-            console.log(chooseElective);
-            console.log('all subs',data);
+            // console.log(chooseElective);
+            // console.log('all subs',data);
 
         }
         
@@ -153,9 +153,9 @@ export default function ExamForm(){
 </div>
         );
     }
-    if(userData.data.currentSemester > 4 && !chooseElective){
-        console.log(userData);
-        console.log(electiveSubject);
+    if(userData.data.currentSemester > 5 && !chooseElective){
+        // console.log(userData);
+        // console.log(electiveSubject);
         return (
             <>
         <div class="page-wrapper">

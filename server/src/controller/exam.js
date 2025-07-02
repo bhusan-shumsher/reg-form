@@ -65,6 +65,8 @@ newData.lastName = data[0].lastName.toUpperCase();
 newData.middleName = data[0].middleName.toUpperCase();
 newData.faculty = data[0].faculty;
 newData.examRollNumber = data[0].examRollNumber;
+// DATE OF BIRTH
+newData.dob = data[0].dobEnglish;
 // newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
 // newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.urlPath)}`;
