@@ -66,11 +66,15 @@ newData.faculty = data[0].faculty;
 newData.examRollNumber = data[0].examRollNumber;
 // newData.totalBackDue = removeEmptyObjects(backSubjects).length * 500;
 newData.date = dateStamp;
-newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.urlPath)}`;
+// newData.image = `data:${data[0].image.contentType};base64,${toBase64(data[0].image.urlPath)}`;
+newData.image = `data:${data[0].imagecontentType};base64,${toBase64(data[0].imageurlPath)}`;
+
 newData.puRegistrationNumber = data[0].puRegistrationNumber;
 // newData.image = logoToBase64('src/template/logo.jpg');
 newData.logo = logoToBase64('src/template/logo.jpg');
-newData.signature = `data:${data[0].signature.contentType};base64,${toBase64(data[0].signature.sign)}`;
+// newData.signature = `data:${data[0].signature.contentType};base64,${toBase64(data[0].signature.sign)}`;
+newData.signature = `data:${data[0].signaturecontentType};base64,${toBase64(data[0].signatureUrl)}`;
+
 newData.khakurel = logoToBase64('src/template/khakurel.png');
 newData.fullName = addSpace(combineName(data[0].firstName, data[0].middleName, data[0].lastName));
 newData.puFormat = formatRegistration(data[0].puRegistrationNumber);

@@ -114,9 +114,13 @@ const userSchema = new Schema({
         type: String,
         trim: true
     },
-    image:{
-        urlPath: {type: String, default: null},
-        contentType: String
+    imageurlPath:{
+        type: String, 
+        default: null
+    },
+    imagecontentType:{
+        type:String,
+        default: 'image/jpeg'
     },
     examRollNumber:{
         type: String,
@@ -126,9 +130,14 @@ const userSchema = new Schema({
         type: String,
         default:' '
     },
-    signature:{
-        sign:{type: String, trim:true,default:null},
-        contentType:{type:String, trim: true}
+    signatureUrl:{
+        type: String, 
+        trim:true,
+        default:null
+    },
+    signaturecontentType:{
+        type:String,
+        default: 'image/jpeg'
     },
     formSubmitted:{
         type: Boolean,
