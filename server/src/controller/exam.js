@@ -31,6 +31,7 @@ const data = await User.aggregate([
 if(!data){
     res.status(500).send({message: 'cant process now'});
 }
+console.log('DATA',data[0]);
 if(data[0].imageurlPath === null || data[0].imageurlPath === undefined){
     throw new Error('Upload Photo!!');
 }
