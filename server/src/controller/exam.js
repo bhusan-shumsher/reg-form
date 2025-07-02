@@ -31,10 +31,10 @@ const data = await User.aggregate([
 if(!data){
     res.status(500).send({message: 'cant process now'});
 }
-if(data[0].image.urlPath === null || data[0].image.urlPath === undefined){
+if(data[0].imageurlPath === null || data[0].imageurlPath === undefined){
     throw new Error('Upload Photo!!');
 }
-if(data[0].signature.sign === null || data[0].signature.sign === undefined){
+if(data[0].signatureUrl === null || data[0].signatureUrl === undefined){
     throw new Error('Upload signature !!');
 }
 let bothCoreAndElective = req.body.formData.regularSubjects.concat(req.body.formData.elective);

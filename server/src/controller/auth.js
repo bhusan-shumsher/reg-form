@@ -25,7 +25,8 @@ exports.signup = async (req,res,next)=>{
     res.status(201).send(user);
 }
 
-exports.login = async (req,res,next)=>{
+exports.
+login = async (req,res,next)=>{
     const {email,password} = req.body;
     const existingUser = await User.findOne({email});
     console.log(existingUser)
