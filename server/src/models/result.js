@@ -14,7 +14,7 @@ const resultSchema = new Schema({
    faculty:{
       type: String,
       required: true,
-      enum:['BECE','BESE','BEELX','BCA','BECIVIL','BEIT','BBA']
+      enum:['BECE','BESE','BEELX','BCA','BECIVIL','BEIT','BBA', 'BARCH']
    },
    semesterType:{
       type: String,

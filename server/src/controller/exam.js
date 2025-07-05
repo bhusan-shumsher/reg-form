@@ -145,13 +145,15 @@ var template = handlebars.compile(templateHtml);
 	var html = template(newData);
 
     var pdfPath = path.join('form');
-    const browserTwo = await puppeteer.launch({
-        args: ['--no-sandbox'],
-  // executablePath: '/usr/bin/chromium',
+    //THIS IS browserTwo
+//     const browserTwo = await puppeteer.launch({
+//         args: ['--no-sandbox'],
+//   // executablePath: '/usr/bin/chromium',
 
-		headless: 'new'
-	});
-    var page = await browserTwo.newPage();
+// 		headless: 'new'
+// 	});
+    // THIS IS browserTwo
+    var page = await browser.newPage();
     await page.setContent(html, { waitUntil: 'domcontentloaded' });
     await page.emulateMediaType('screen');
  
@@ -176,13 +178,14 @@ var template = handlebars.compile(secondaryHtml);
 	var html = template(newData);
 
     var pdfPath = path.join('form');
-    const browserThree = await puppeteer.launch({
-        args: ['--no-sandbox'],
-  // executablePath: '/usr/bin/chromium'
+//     const browserThree = await puppeteer.launch({
+//         args: ['--no-sandbox'],
+//   // executablePath: '/usr/bin/chromium'
 
-		headless: 'new'
-	});
-    var page = await browserThree.newPage();
+// 		headless: 'new'
+// 	});
+// THIS IS broswerThree
+    var page = await browser.newPage();
     await page.setContent(html, { waitUntil: 'domcontentloaded' });
     await page.emulateMediaType('screen');
  
@@ -208,13 +211,15 @@ var template = handlebars.compile(secondaryHtml);
 	var html = template(newData);
 
     var pdfPath = path.join('form');
-    const browserFour = await puppeteer.launch({
-        args: ['--no-sandbox'],
-	      // executablePath: '/usr/bin/chromium',
+    // const browserFour = await puppeteer.launch({
+    //     args: ['--no-sandbox'],
+	//       // executablePath: '/usr/bin/chromium',
 
-		headless: 'new'
-	});
-    var page = await browserFour.newPage();
+	// 	headless: 'new'
+	// });
+
+    // THIS IS browserFour
+    var page = await browser.newPage();
     await page.setContent(html, { waitUntil: 'domcontentloaded' });
     await page.emulateMediaType('screen');
  
@@ -237,9 +242,9 @@ var template = handlebars.compile(secondaryHtml);
   });
 //   Close the browser instance
   await browser.close();
-  await browserTwo.close();
-  await browserThree.close();
-  await browserFour.close();
+//   await browserTwo.close();
+//   await browserThree.close();
+//   await browserFour.close();
 
   // rename folder 
   try{
