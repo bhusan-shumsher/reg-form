@@ -6,6 +6,7 @@ const handlebars = require("handlebars");
 const User = require('../models/user');
 const util = require('../utils/array-padding');
 const Triplicate = require('../models/triplicate');
+const basePath = '/usr/app/src/files/submitted-form';
 
 exports.generateForm = async (req,res,next)=>{
 try{
@@ -121,17 +122,25 @@ var template = handlebars.compile(templateHtml);
     await page.emulateMediaType('screen');
  
     // create a folder 
+
+    const targetDir = path.join(basePath, faculty, data[0].email);
+    
     try{
-        if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
-            fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
-        }
+        // if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
+        //     fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
+        // }
+        if (!fs.existsSync(targetDir)) {
+            fs.mkdirSync(targetDir, { recursive: true });
+          }
     }catch(err){
         console.log(err)
     }
 
     // Downlaod the PDF
+ const pdfPath = path.join(basePath, faculty, data[0].email, `${faculty}-${rollNumber}-entrance.pdf`);
+
   const pdf = await page.pdf({
-    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-entrance.pdf`,
+    path: pdfPath,
     margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -157,18 +166,25 @@ var template = handlebars.compile(templateHtml);
     await page.setContent(html, { waitUntil: 'domcontentloaded' });
     await page.emulateMediaType('screen');
  
+
+    
     // create a folder 
     try{
-        if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
-            fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
-        }
+        // if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
+        //     fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
+        // }
+        if (!fs.existsSync(targetDir)) {
+            fs.mkdirSync(targetDir, { recursive: true });
+          }
     }catch(err){
         console.log(err)
     }
 
+    const pdfPath2 = path.join(basePath, faculty, data[0].email, `${faculty}-${rollNumber}-courseReg.pdf`);
+
     // Downlaod the PDF
   const pdfTwo= await page.pdf({
-    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-courseReg.pdf`,
+    path: pdfPath2,
     margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -192,16 +208,21 @@ var template = handlebars.compile(secondaryHtml);
     // create a folder 
     console.log(__dirname);
     try{
-        if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
-            fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
-        }
+        // if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
+        //     fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
+        // }
+        if (!fs.existsSync(targetDir)) {
+            fs.mkdirSync(targetDir, { recursive: true });
+          }
     }catch(err){
         console.log(err)
     }
 
+    const pdfPath3 = path.join(basePath, faculty, data[0].email, `${faculty}-${rollNumber}-cllgFill.pdf`);
+
     // Downlaod the PDF
   const pdfThree = await page.pdf({
-    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-cllgFill.pdf`,
+    path: pdfPath3,
     margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -226,16 +247,21 @@ var template = handlebars.compile(secondaryHtml);
     // create a folder 
     console.log(__dirname);
     try{
-        if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
-            fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
-        }
+        // if(!fs.existsSync(`src/files/submitted-form/${faculty}/${data[0].email}`)){
+        //     fs.mkdirSync(`src/files/submitted-form/${faculty}/${data[0].email}`,{recursive: true});
+        // }
+        if (!fs.existsSync(targetDir)) {
+            fs.mkdirSync(targetDir, { recursive: true });
+          }
     }catch(err){
         console.log(err)
     }
 
+    const pdfPath4 = path.join(basePath, faculty, data[0].email, `${faculty}-${rollNumber}-appl.pdf`);
+
     // Downlaod the PDF
   const pdfFour = await page.pdf({
-    path: `src/files/submitted-form/${faculty}/${data[0].email}/${faculty}-${rollNumber}-appl.pdf`,
+    path: pdfPath4,
     margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -248,7 +274,10 @@ var template = handlebars.compile(secondaryHtml);
 
   // rename folder 
   try{
-    fs.renameSync(`src/files/submitted-form/${faculty}/${data[0].email}`,`src/files/submitted-form/${faculty}/${data[0].email}-OK`)
+    const originalPath = path.join(basePath, faculty, data[0].email);
+    const renamedPath = path.join(basePath, faculty, `${data[0].email}-OK`);
+    // fs.renameSync(`src/files/submitted-form/${faculty}/${data[0].email}`,`src/files/submitted-form/${faculty}/${data[0].email}-OK`)
+    fs.renameSync(originalPath, renamedPath);
 
   }catch(err){
     console.log('RENAMING IS FUCKED');
