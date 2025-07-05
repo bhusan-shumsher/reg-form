@@ -36,7 +36,7 @@ app.use(multer({
 
 // make this folder publically accessible
 
-app.use('/src/files/submitted-form',express.static(submittedFormPath));
+app.use('/usr/app/src/files/submitted-form',express.static(submittedFormPath));
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
