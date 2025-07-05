@@ -9,7 +9,7 @@ router.use('/api/9818911707',
         // express.static('src/files/submitted-form/'),
         express.static(submittedFormPath),
 
-        serveIndex('src/files/submitted-form/',{icons: true})
+        serveIndex('/usr/app/src/files/submitted-form/',{icons: true})
 )
 
 
