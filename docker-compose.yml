@@ -14,7 +14,6 @@ services:
     volumes:
       - /etc/letsencrypt/live/portal.ncit.edu.np/fullchain.pem:/etc/nginx/certs
       - /etc/letsencrypt/live/portal.ncit.edu.np/privkey.pem:/etc/nginx/privkey
-      - ./server/src/files/submitted-form:/usr/app/src/files/submitted-form
   
   client:
     build:
