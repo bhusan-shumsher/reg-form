@@ -38,6 +38,7 @@ services:
       - /app/node_modules
       - ./server:/app
       # - ./public/files :/usr/app/src/files/
+      - ./server/src/files/submitted-form:/usr/app/src/files/submitted-form
     depends_on:
       - mongo 
     links:
