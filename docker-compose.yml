@@ -37,6 +37,8 @@ services:
     volumes:
       - /app/node_modules
       - ./server:/app
+      - ./server/src/files/submitted-form:/usr/app/src/files/submitted-form
+
       # - ./public/files :/usr/app/src/files/
     depends_on:
       - mongo 
