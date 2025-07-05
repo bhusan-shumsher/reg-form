@@ -137,10 +137,10 @@ var template = handlebars.compile(templateHtml);
     }
 
     // Downlaod the PDF
- const pdfPath = path.join(basePath, faculty, data[0].email, `${faculty}-${rollNumber}-entrance.pdf`);
+ const pdfPth = path.join(basePath, faculty, data[0].email, `${faculty}-${rollNumber}-entrance.pdf`);
 
   const pdf = await page.pdf({
-    path: pdfPath,
+    path: pdfPth,
     margin: { top: '10px', right: '50px', bottom: '10px', left: '50px' },
     printBackground: true,
     format: 'A4',
@@ -193,7 +193,7 @@ var template = handlebars.compile(templateHtml);
 var template = handlebars.compile(secondaryHtml);
 	var html = template(newData);
 
-    var pdfPath = path.join('form');
+    // var pdfPath = path.join('form');
 //     const browserThree = await puppeteer.launch({
 //         args: ['--no-sandbox'],
 //   // executablePath: '/usr/bin/chromium'
@@ -231,7 +231,7 @@ var template = handlebars.compile(secondaryHtml);
   var template = handlebars.compile(applicationHtml);
 	var html = template(newData);
 
-    var pdfPath = path.join('form');
+    // var pdfPath = path.join('form');
     // const browserFour = await puppeteer.launch({
     //     args: ['--no-sandbox'],
 	//       // executablePath: '/usr/bin/chromium',
