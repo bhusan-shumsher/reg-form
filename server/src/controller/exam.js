@@ -88,11 +88,23 @@ const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/fina
 {
     return parseInt(value) + 1;
 });
+// NEW REGISTER
+handlebars.registerHelper('splitDate', function(dob) {
+  return dob.replace(/-/g, ' ').split('');
+});
 // Course Registration
 const subRegHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/courseRegistration.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, optionSub)
 {
     return parseInt(value) + 1;
+});
+// NEW REGISTER
+handlebars.registerHelper('splitDOB', function(dob) {
+  // Input: "12-12-2024" → Output: Array of characters and spaces
+  const formatted = dob.replace(/-/g, ' ');
+  return formatted.split('').map(char =>
+    char === ' ' ? { isSpace: true } : { char }
+  );
 });
 //Filled by College
 const secondaryHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/subReg.html'), 'utf8');
@@ -100,11 +112,26 @@ const secondaryHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/sub
 {
     return parseInt(value) + 1;
 });
+// NEW REGISTER
+handlebars.registerHelper('splitDate', function(dob) {
+  return dob.replace(/-/g, ' ').split('');
+});
 // application form 
 const applicationHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/applicationForm.html'), 'utf8');
     handlebars.registerHelper("inc", function(value, optionSub)
 {
     return parseInt(value) + 1;
+});
+// NEW REGISTER
+handlebars.registerHelper('splitDOB', function(dob) {
+  // Input: "12-12-2024" → Output: Array of characters and spaces
+  const formatted = dob.replace(/-/g, ' ');
+  return formatted.split('').map(char =>
+    char === ' ' ? { isSpace: true } : { char }
+  );
+});
+handlebars.registerHelper('splitDate', function(dob) {
+  return dob.replace(/-/g, ' ').split('');
 });
 // HERE IS WHAT IT TAKES ..CRITICAL
 var template = handlebars.compile(templateHtml);

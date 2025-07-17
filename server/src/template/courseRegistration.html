@@ -115,6 +115,9 @@
             <span class="right">Name of the Student: <span style="color:black;">{{ firstName }} {{ middleName }} {{lastName}}</span> </span>
             <span class="left">Roll No. : <span style="color:black;">{{examRollNumber}}</span></span>
         </div>
+        <!-- DOB BOX -->
+       
+        
         <div class="row">
             <span  class="right">Faculty : {{PROGRAM}} </span>
             <span class="left">Level : Bachelor</span>
@@ -128,10 +131,31 @@
             <span class="right">Semester/Trimester/Year : Spring</span>
             <span class="left">Year : 2025 </span>
         </div>
-            <div class="row">
+            <!-- <div class="row">
                 <span class="right">Name of the College : <span style="color:black;">Nepal College of Information Technology</span></span>
                 <span class="left">Date of Birth: <span style="color:black;">{{dob}}</span></span>
+            </div> -->
+            <div class="row" style="justify-content: space-between; align-items: center;">
+                <span class="left">Name of the Student: <span style="color:black;">{{ firstName }} {{ middleName }} {{lastName}}</span></span>
+            
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span>Date of Birth (DD MM YYYY):</span>
+                    <div style="display: flex; gap: 4px; margin-left: 8px;">
+                        {{#each (splitDOB dob)}}
+                            {{#if this.isSpace}}
+                                <div style="width: 8px;"></div>
+                            {{else}}
+                                <div style="width: 20px; height: 20px; border: 1px solid #2e5cb8;
+                                            display: flex; align-items: center; justify-content: center; font-size: 14px;">
+                                    {{this.char}}
+                                </div>
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                </div>
             </div>
+            
+
     </div>
     <div class="regular-courses">
         <table>

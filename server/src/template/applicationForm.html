@@ -109,10 +109,32 @@
             <span style="margin: 0px auto;">Last Name</span>
             </div> -->
             <br/>
-            <div>
+            <!-- <div>
                 <span style="padding: 5px;">Name:<span style="color: black;">{{firstName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{middleName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{lastName}} </span></span>
             </div>
-            <br/>
+            <br/> -->
+            <div>
+                <span style="padding: 5px;">Name: <span style="color: black;">{{firstName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{middleName}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{lastName}}</span></span>
+            </div>
+            
+            <!-- Date of Birth Row -->
+            <div style="margin: 6px 5px; display: flex; align-items: center; gap: 8px;">
+                <span>Date of Birth (DD MM YYYY):</span>
+                <div style="display: flex; gap: 4px;">
+                    {{#each (splitDOB dob)}}
+                        {{#if this.isSpace}}
+                            <div style="width: 8px;"></div>
+                        {{else}}
+                            <div style="width: 20px; height: 20px; border: 1px solid #2e5cb8;
+                                        display: flex; align-items: center; justify-content: center; font-size: 14px;">
+                                {{this.char}}
+                            </div>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+            
+            
             <!-- <table> 
                 <tr> -->
                     <!-- <th>Name</th> -->

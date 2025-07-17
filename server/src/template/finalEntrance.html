@@ -77,6 +77,21 @@
             /*border-bottom: 1px solid  #2e5cb8;
             padding-bottom: 3px; */
         }
+        .dob-box-wrapper {
+  display: inline-flex;
+  gap: 4px;
+  margin-left: 5px;
+}
+
+.dob-box {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #2e5cb8;
+  text-align: center;
+  line-height: 20px;
+  font-size: 14px;
+  font-family: monospace;
+}
     </style>
 </head>
 <body>
@@ -95,12 +110,21 @@
             <span style="width: 65%;">Exam Roll No. : <span style="color:red;">{{ examRollNumber}}</span></span>
             <span style="width: 35%;">Exam Center: </span>
         </div>
+        
         <div>
             P.U. Registration No. : <span style="color:black;">{{puRegistrationNumber}}</span>
         </div>
         <div>
             Name of the Student : <span style="color:black;"> {{firstName}} {{middleName}} {{lastName}}</span>
         </div>
+        <div>
+            Date of Birth:
+            <span class="dob-box-wrapper">
+              {{#each (splitDate dob) }}
+                <span class="dob-box">{{this}}</span>
+              {{/each}}
+            </span>
+          </div>
         <div class="row">
             <span style="width: 65%;">Level : Bachelor</span>
             <span style="width: 35%;">Program : {{faculty}}</span>
