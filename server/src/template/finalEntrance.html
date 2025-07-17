@@ -117,14 +117,30 @@
         <div>
             Name of the Student : <span style="color:black;"> {{firstName}} {{middleName}} {{lastName}}</span>
         </div>
-        <div>
+        <!-- <div>
             Date of Birth:
             <span class="dob-box-wrapper">
               {{#each (splitDate dob) }}
                 <span class="dob-box">{{this}}</span>
               {{/each}}
             </span>
-          </div>
+          </div> -->
+          <div style="margin: 6px 5px; display: flex; align-items: center; gap: 8px;">
+            <span>Date of Birth</span>
+            <div style="display: flex;">
+                {{#each (splitDOB dob)}}
+                    {{#if this.isSpace}}
+                        <div style="width: 5px;"></div>
+                    {{else}}
+                        <div style="width: 20px; height: 20px; border: 1px solid #2e5cb8;
+                                    display: flex; align-items: center; justify-content: center; font-size: 14px;">
+                            {{this.char}}
+                        </div>
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
+
         <div class="row">
             <span style="width: 65%;">Level : Bachelor</span>
             <span style="width: 35%;">Program : {{faculty}}</span>

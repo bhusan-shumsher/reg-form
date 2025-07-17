@@ -89,8 +89,12 @@ const templateHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/fina
     return parseInt(value) + 1;
 });
 // NEW REGISTER
-handlebars.registerHelper('splitDate', function(dob) {
-  return dob.replace(/-/g, ' ').split('');
+handlebars.registerHelper('splitDOB', function(dob) {
+  // Input: "12-12-2024" → Output: Array of characters and spaces
+  const formatted = dob.replace(/-/g, ' ');
+  return formatted.split('').map(char =>
+    char === ' ' ? { isSpace: true } : { char }
+  );
 });
 // Course Registration
 const subRegHtml = fs.readFileSync(path.join(process.cwd(), 'src/template/courseRegistration.html'), 'utf8');
