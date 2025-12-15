@@ -65,7 +65,7 @@ export default function UploadDocs(){
                 <div className="row">
                 <div className="col-12">
                 <h5 className="form-title student-info">Upload Supporting Docs <span></span></h5>
-                <h6>** Please Select Each File Separately and Upload **</h6>
+                <h6>** Please Combine All the files in the order specified in the email and create a single PDF **</h6>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
                         <FileInputField fileType="Documents" register={register} errors={errors}/>

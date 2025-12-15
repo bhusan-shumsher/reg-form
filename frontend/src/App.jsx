@@ -186,7 +186,8 @@ const router = createBrowserRouter([
   },
   {
     path: '/',
-    element: <Login/>
+    // change this during exam 
+    element: <RegistrationLogin/>
   },
   {
     path:'/student/registration',
@@ -208,35 +209,60 @@ const router = createBrowserRouter([
     path:'*',
     element: <Error404/>
   },
+  // {
+  //   element: <RegistrationProtectedRoute><AppLayout/></RegistrationProtectedRoute>,
+  //   children:[
+  //     {
+  //       path:"/new-student/registration-form",
+  //       element: <RegistrationForm/>
+  //     },
+  //     {
+  //       path:'/new-student/signature-upload',
+  //       element: <SignatureUpload/>
+  //     },
+  //     {
+  //       path:'/new-student/upload-supporting-docs',
+  //       element:<UploadDocs/>
+  //     },
+  //     {
+  //       path:'/new-student/generate-form',
+  //       element: <GenerateForm/>
+  //     },
+  //     {
+  //       path:'/new-student/checkdocs',
+  //       element:<TickDocs/>
+  //     },
+  //     {
+  //       path:'/new-student/form-download',
+  //       element:<FormDownload/>
+  //     }
+  //   ]
+  // },
   {
-    element: <RegistrationProtectedRoute><AppLayout/></RegistrationProtectedRoute>,
-    children:[
-      {
-        path:"/new-student/registration-form",
-        element: <RegistrationForm/>
-      },
-      {
-        path:'/new-student/signature-upload',
-        element: <SignatureUpload/>
-      },
-      {
-        path:'/new-student/upload-supporting-docs',
-        element:<UploadDocs/>
-      },
-      {
-        path:'/new-student/generate-form',
-        element: <GenerateForm/>
-      },
-      {
-        path:'/new-student/checkdocs',
-        element:<TickDocs/>
-      },
-      {
-        path:'/new-student/form-download',
-        element:<FormDownload/>
-      }
-    ]
+    path:"/new-student/registration-form",
+    element: <RegistrationForm/>
+  },
+  {
+    path:'/new-student/signature-upload',
+    element: <SignatureUpload/>
+  },
+  {
+    path:'/new-student/upload-supporting-docs',
+    element:<UploadDocs/>
+  },
+  {
+    path:'/new-student/generate-form',
+    element: <GenerateForm/>
+  },
+  {
+    path:'/new-student/checkdocs',
+    element:<TickDocs/>
+  },
+  {
+    path:'/new-student/form-download',
+    element:<FormDownload/>
   }
+  
   
 ]);
 

@@ -1,3 +1,4 @@
+
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
@@ -11,7 +12,7 @@ const handlebars = require("handlebars");
 const puppeteer = require('puppeteer');
 const path = require("path");
 // const url = require('url');
-const NepaliDate = require('nepali-date-converter');
+// const NepaliDate = require('nepali-date-converter');
 const excel = require('../utils/registerFromExcel');
 
 exports.signup = async (req,res,next)=>{
@@ -85,7 +86,7 @@ exports.saveDetails = async (req,res,next)=>{
             schoolName,secondaryBoard,secondaryYear,secondaryTotalMarks,
             secondaryMarksObtained,secondaryDivision,
             secondarySymbol,
-            plusTwoName,plusTwoBoard,plusTwoYear,
+            plusTwoName,plusTwoBoard,plusTwoYear,dobNepali,
             plusTwoTotalMarks,plusTwoMarksObtained,plusTwoDivision,plusTwoSymbol,dobEnglish,gender
         } = req.body;
 
@@ -117,8 +118,8 @@ exports.saveDetails = async (req,res,next)=>{
         const engDate = new Date(dobEnglish);
          const dobE = engDate.getFullYear()+'-'+(engDate.getMonth() + 1) +'-'+engDate.getDate();
 
-        const nepali = new NepaliDate(changeToStamp(dobE));
-        const dobNepali = nepali.getBS().year + '-' +(nepali.getBS().month+1) +'-'+ nepali.getBS().date;
+        // const nepali = new NepaliDate(changeToStamp(dobE));
+        // const dobNepali = nepali.getBS().year + '-' +(nepali.getBS().month+1) +'-'+ nepali.getBS().date;
     const details = new RegistrationDetail({
         email: req.email,
         faculty,title,fullName,fullNameDevanagari,

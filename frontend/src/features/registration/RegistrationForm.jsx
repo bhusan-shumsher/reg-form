@@ -1,4 +1,5 @@
-
+import { NepaliDatePicker } from "nepali-datepicker-reactjs"
+import "nepali-datepicker-reactjs/dist/index.css"
 import {Controller, useForm} from 'react-hook-form';
 import { useState } from 'react';
 import LongTextBox from "./formui/LongTextBox";
@@ -95,12 +96,12 @@ export default function RegistrationForm(){
                 label='Faculty'
                 placeholder='Select Faculty'
                 values={[
-                    {placeholder:'B.Arch',value:'BARCH'},
-                    {placeholder: 'BECE', value:'BECE'},
                     {placeholder: 'BESE', value: 'BESE'},
                     {placeholder: 'BEIT', value:'BEIT'},
-                    {placeholder: 'BEELX', value:'BEELX'},
-                    {placeholder: 'BECIVIL', value:'BECIVIL'},
+                    {placeholder: 'BEICE', value:'BE ICE'},
+                    {placeholder: 'BECIVIL', value:'BE CIVIL'},
+                    {placeholder:'B.Arch',value:'BARCH'},
+                    {placeholder: 'BECE', value:'BECE'},
                     {placeholder: 'BCA', value:'BCA'},
                     {placeholder: 'BBA', value:'BBA'}
                 ]}
@@ -541,8 +542,52 @@ export default function RegistrationForm(){
                             Next
                         </button>
         </section>
-    )}
+    )} 
     {formStep === 5 && (
+        <section>
+        <h5 className="form-title student-info">
+          Date of Birth (Nepali) <span></span>
+        </h5>
+      
+        <div className="col-lg-10">
+          <Controller
+            control={control}
+            name="dobNepali"
+            render={({ field }) => (
+              <NepaliDatePicker
+                inputClassName="form-control"
+                className="w-100"
+                value={field.value}
+                onChange={(value) => field.onChange(value)}
+                options={{ calenderLocale: 'ne', valueLocale: 'en' }}
+                placeholder="Select DoB (BS)"
+              />
+            )}
+          />
+        </div>
+      
+        <br />
+        <br />
+      
+        <button
+          type="button"
+          className="btn btn-warning"
+          onClick={goBack}
+        >
+          Back
+        </button>
+      
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={completeFormStep}
+        >
+          Next
+        </button>
+      </section>
+    )}
+    
+    {formStep === 6 && (
         <section>
            {/* <div className="col-12 col-sm-4">
             <div className="form-group students-up-files">
@@ -559,6 +604,7 @@ export default function RegistrationForm(){
             </div> */}
             <div className="form-group row">
                         <label className="col-form-label col-md-2">PP Photo</label>
+                        <h6>** Please ensure that the image has a plain WHITE background. **</h6>
                         <div className="col-md-6">
                         <input 
                             
@@ -601,9 +647,3 @@ export default function RegistrationForm(){
 }
 
 
-
-// function toNepali(date){
-//     var nepali =  new NepaliDate(date);
-//     console.log(nepali.getBS());
-//     return nepali.getBS().year +"-" +(nepali.getBS().month +1 ) +"-"+ nepali.getBS().date;
-// ;}

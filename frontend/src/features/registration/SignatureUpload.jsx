@@ -57,6 +57,7 @@ export default function SignatureUpload(){
         
                     <div class="form-group row">
                         <label class="col-form-label col-md-2">Signature(image file)</label>
+                        <h6>** Please remove the background of the image before uploading **</h6>
                         <div class="col-md-6">
                         <input 
                             class="form-control" 
