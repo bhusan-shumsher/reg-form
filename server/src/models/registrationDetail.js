@@ -9,7 +9,7 @@ const registrationDetailSchema = new Schema({
     },
     program:{
         type: String,
-        enum:['BEELX','BESE','BECE','BEIT','BECIVIL','BCA','BBA','BARCH'],
+        enum:['BEELX','BESE','BECE','BEIT','BECIVIL','BCA','BBA','BARCH','BE IC'],
         required: true
     },
     faculty:{

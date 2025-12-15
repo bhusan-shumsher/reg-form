@@ -39,6 +39,7 @@ services:
       - ./server:/app
       # - ./public/files :/usr/app/src/files/
       - ./server/src/files/submitted-form:/usr/app/src/files/submitted-form
+      - ./server/src/files/registration:/usr/app/src/files/registration
     depends_on:
       - mongo 
     links:

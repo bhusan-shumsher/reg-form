@@ -25,7 +25,7 @@ const newStudentSchema = new Schema({
     faculty:{
         type: String,
         required: true,
-        enum:['BESE','BEIT','BECE','BECIVIL','BARCH','BBA','BCA']
+        enum:['BESE','BEIT','BECE','BECIVIL','BARCH','BBA','BCA','BE IC']
     }
 });
 
