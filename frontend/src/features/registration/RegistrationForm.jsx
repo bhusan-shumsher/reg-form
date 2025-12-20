@@ -84,7 +84,7 @@ export default function RegistrationForm(){
                 <div className="card-body">
                 <div className="row">
                 <div className="col-12">
-                <h5 className="form-title student-info">Univeristy Registration <span></span></h5>
+                <h5 className="form-title student-info">University Registration <span></span></h5>
                 </div>
                 <div class="card-body">
 <form onSubmit={handleSubmit(onSubmit)}>
@@ -98,7 +98,7 @@ export default function RegistrationForm(){
                 values={[
                     {placeholder: 'BESE', value: 'BESE'},
                     {placeholder: 'BEIT', value:'BEIT'},
-                    {placeholder: 'BEICE', value:'BE ICE'},
+                    {placeholder: 'BEICE', value:'BE IC'},
                     {placeholder: 'BECIVIL', value:'BE CIVIL'},
                     {placeholder:'B.Arch',value:'BARCH'},
                     {placeholder: 'BECE', value:'BECE'},
