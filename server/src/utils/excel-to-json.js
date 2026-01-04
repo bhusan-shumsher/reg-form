@@ -91,7 +91,7 @@ const getDepartment = (rollNumber)=>{
         return 'BECE';
     }
     if(code == '18' || code == '19'){
-        return 'BE CIVIL'
+        return 'BECIVIL'
     }if(code=='32'){
         return 'BARCH'
     }

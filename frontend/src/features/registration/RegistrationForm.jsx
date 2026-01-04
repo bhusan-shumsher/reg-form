@@ -99,7 +99,7 @@ export default function RegistrationForm(){
                     {placeholder: 'BESE', value: 'BESE'},
                     {placeholder: 'BEIT', value:'BEIT'},
                     {placeholder: 'BEICE', value:'BE IC'},
-                    {placeholder: 'BECIVIL', value:'BE CIVIL'},
+                    {placeholder: 'BECIVIL', value:'BECIVIL'},
                     {placeholder:'B.Arch',value:'BARCH'},
                     {placeholder: 'BECE', value:'BECE'},
                     {placeholder: 'BCA', value:'BCA'},
