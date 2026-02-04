@@ -86,17 +86,34 @@ export default function ExamForm(){
         }
     }
     function onSelectElective(e){
+        // e.preventDefault();
+        // THIS IS PREVIOUS ONE
+        // if(elective.length < 1){
+        //     toast.error('You need to choose one Elective Subject !!');
+
+        // }else{
+        //     setChooseElective(true);
+        //     // console.log(chooseElective);
+        //     // console.log('all subs',data);
+
+        // }
+
+        // NEW ONE AFTER 7TH SEM
         e.preventDefault();
 
-        if(elective.length < 1){
-            toast.error('You need to choose one Elective Subject !!');
+    const currentSemester = userData?.data?.currentSemester;
 
-        }else{
-            setChooseElective(true);
-            // console.log(chooseElective);
-            // console.log('all subs',data);
+    // max backs based on semester
+    const maxAllowed = currentSemester === 7 ? 4 : 3;
 
-        }
+    if (backLogs.length > maxAllowed) {
+        toast.error(
+            `You are not allowed to fill more than ${maxAllowed} back subjects!`
+        );
+        setSelected(false);
+    } else {
+        setSelected(true);
+    }
         
     }
     function onSubmit(e){

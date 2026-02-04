@@ -98,7 +98,7 @@ const getDepartment = (rollNumber)=>{
     if(code == '22'){
         return 'BBA'
     }if(code == '11'){
-        return 'BE IC'
+        return 'BEIC'
     }
     else{
         return 'BCA'

@@ -39,7 +39,7 @@ const userSchema = new Schema({
     },
     faculty:{
         type: String,
-        enum:['BESE','BECE','BEIT','BECIVIL','BCA','BBA','BARCH'],
+        enum:['BESE','BECE','BEIT','BECIVIL','BCA','BBA','BARCH','BEIC'],
         // required: true
     },
     semester:{

@@ -187,7 +187,7 @@ const router = createBrowserRouter([
   {
     path: '/',
     // change this during exam 
-    element: <RegistrationLogin/>
+    element: <Login/>
   },
   {
     path:'/student/registration',

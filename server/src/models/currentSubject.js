@@ -33,7 +33,7 @@ const  currentSubjectSchema = new Schema({
     faculty:{
         type: String,
         required: true,
-        enum:['BCA','BBA','BESE','BEIT','BEELX','BECE','BECIVIL','BARCH']
+        enum:['BCA','BBA','BESE','BEIT','BEELX','BECE','BECIVIL','BARCH','BEIC']
     },
     courseCode:{
         type: String,
