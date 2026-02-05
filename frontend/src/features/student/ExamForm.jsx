@@ -86,20 +86,35 @@ export default function ExamForm(){
         }
     }
     function onSelectElective(e){
-        // e.preventDefault();
-        // THIS IS PREVIOUS ONE
-        // if(elective.length < 1){
-        //     toast.error('You need to choose one Elective Subject !!');
+        e.preventDefault();
+        if(elective.length < 1){
+            toast.error('You need to choose one Elective Subject !!');
 
-        // }else{
-        //     setChooseElective(true);
-        //     // console.log(chooseElective);
-        //     // console.log('all subs',data);
+        }else{
+            setChooseElective(true);
+            // console.log(chooseElective);
+            // console.log('all subs',data);
 
-        // }
+        }
 
         // NEW ONE AFTER 7TH SEM
-        e.preventDefault();
+      
+        
+    }
+    function onSubmit(e){
+        // // console.log('BACKLOGS--->',backLogs);
+        // e.preventDefault();
+        // // if(backLogs.length > 3){
+        // //     toast.error('You are not allowed to fill these many backs!!');
+        // // }
+        // if(backLogs.length > 3){
+        //     toast.error('You are not allowed to fill these many backs!!');
+        //     setSelected(false);
+        // }else if(backLogs.length <4){
+        //     setSelected(true);
+        // }
+
+          e.preventDefault();
 
     const currentSemester = userData?.data?.currentSemester;
 
@@ -114,20 +129,6 @@ export default function ExamForm(){
     } else {
         setSelected(true);
     }
-        
-    }
-    function onSubmit(e){
-        // console.log('BACKLOGS--->',backLogs);
-        e.preventDefault();
-        // if(backLogs.length > 3){
-        //     toast.error('You are not allowed to fill these many backs!!');
-        // }
-        if(backLogs.length > 3){
-            toast.error('You are not allowed to fill these many backs!!');
-            setSelected(false);
-        }else if(backLogs.length <4){
-            setSelected(true);
-        }
     }
     function submitForm(){
         const form = new Object();
