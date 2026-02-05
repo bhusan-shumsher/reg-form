@@ -11,7 +11,8 @@ export default function FormSuccess(){
         <>
         <div class="page-wrapper">
         <div class="content container-fluid">
-            <span>Form has been submitted. This is only for your reference. DO NOT USE FOR EXAM PURPOSE</span>
+            ✅ <strong>Form submitted successfully!</strong><br />
+          This page is only for your reference. <b>DO NOT USE FOR EXAM PURPOSE.</b>
         <Viewer url={data}/>
         </div>
         </div>
