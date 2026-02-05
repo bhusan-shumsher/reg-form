@@ -306,7 +306,7 @@ var template = handlebars.compile(secondaryHtml);
   // rename folder 
   try{
     const originalPath = path.join(basePath, faculty, data[0].email);
-    const renamedPath = path.join(basePath, faculty, `${data[0].email}-OK`);
+    const renamedPath = path.join(basePath, faculty, `${data[0].email}-OK✔`);
     // fs.renameSync(`src/files/submitted-form/${faculty}/${data[0].email}`,`src/files/submitted-form/${faculty}/${data[0].email}-OK`)
     fs.renameSync(originalPath, renamedPath);
 
