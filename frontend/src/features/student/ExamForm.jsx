@@ -119,7 +119,7 @@ export default function ExamForm(){
     const currentSemester = userData?.data?.currentSemester;
 
     // max backs based on semester
-    const maxAllowed = currentSemester === 7 ? 4 : 3;
+    const maxAllowed = currentSemester === 8 ? 4 : 3;
 
     if (backLogs.length > maxAllowed) {
         toast.error(
