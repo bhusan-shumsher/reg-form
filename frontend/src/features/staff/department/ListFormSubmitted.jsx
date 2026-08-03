@@ -93,6 +93,7 @@ export default function ListFormSubmitted(){
                     <table className="table border-0 star-student table-hover table-center mb-0 datatable table-striped">
                     <thead className="student-thread">
                     <tr>
+                    <th>SN</th>
                     <th>Roll</th>
                     <th>Name</th>
                     <th>Semester</th>
@@ -124,7 +125,8 @@ function showList(students){
             
             return students.map((st,index)=>{
                 return(
-                    <tr keys={index}>
+                    <tr keys={st.rollNumber || index}>
+                <td>{index+1}</td>
                 <td>{st.rollNumber}</td>
                 <td>
                     <a>{st.firstName} {st.middleName} {st.lastName}</a>
